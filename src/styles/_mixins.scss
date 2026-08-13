@@ -15,6 +15,13 @@
   outline-offset: 2px;
 }
 
+// Soft focus ring using box-shadow (for inputs/selects)
+@mixin focus-ring-soft {
+  border-color: tokens.$color-primary;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(tokens.$color-primary, 0.15);
+}
+
 // Visually hide content but keep it accessible to screen readers
 @mixin visually-hidden {
   position: absolute;
