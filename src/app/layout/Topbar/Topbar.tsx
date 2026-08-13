@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { useAppSelector } from '../../hooks'
+import { useLocale } from '../../../shared/contexts/LocaleContext'
 import styles from './Topbar.module.scss'
 
 interface TopbarProps {
@@ -9,11 +9,10 @@ interface TopbarProps {
 
 export function Topbar({ title, onMenuClick }: TopbarProps) {
   const user = useAppSelector((s) => s.auth.user)
-  const [locale, setLocale] = useState<'en' | 'ar'>('en')
+  const { locale, setLocale } = useLocale()
 
   const handleLanguageToggle = () => {
-    setLocale((prev) => (prev === 'en' ? 'ar' : 'en'))
-    // TODO: Update global locale context/state when implemented
+    setLocale(locale === 'en' ? 'ar' : 'en')
   }
 
   const userName = user?.name[locale] || user?.name.en || 'User'

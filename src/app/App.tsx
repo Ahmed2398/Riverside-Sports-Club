@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store'
+import { LocaleProvider } from '../shared/contexts/LocaleContext'
 import { useAuth } from '../features/auth/hooks'
 import { LoginPage } from '../features/auth/pages/LoginPage'
 import { AppShell } from './layout/AppShell/AppShell'
@@ -32,12 +33,14 @@ function ProtectedLayout() {
 export default function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/*" element={<ProtectedLayout />} />
-        </Routes>
-      </BrowserRouter>
+      <LocaleProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/*" element={<ProtectedLayout />} />
+          </Routes>
+        </BrowserRouter>
+      </LocaleProvider>
     </Provider>
   )
 }

@@ -10,13 +10,18 @@ export const apiClient = axios.create({
   },
 })
 
-// --- Request interceptor: attach Bearer token ---
+// --- Request interceptor: attach Bearer token and Accept-Language header ---
 apiClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const token = localStorage.getItem('rsc_token')
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
+    
+    // Add Accept-Language header based on current locale
+    const locale = localStorage.getItem('rsc_locale') || 'en'
+    config.headers['Accept-Language'] = locale === 'ar' ? 'ar' : 'en'
+    
     return config
   },
   (error) => Promise.reject(error),
