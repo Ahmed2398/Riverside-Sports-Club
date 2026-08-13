@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
-import { setSort } from '../membersSlice'
-import { StatusBadge, TierBadge } from '../../../shared/components'
+import { setSort, resetFilters } from '../membersSlice'
+import { StatusBadge, TierBadge, Button } from '../../../shared/components'
 import type { MemberListParams } from '../../../shared/api/types'
 import styles from './MemberTable.module.scss'
 
@@ -69,7 +69,14 @@ export function MemberTable() {
               ? (
                 <tr>
                   <td colSpan={4} className={styles.emptyState}>
-                    No members found. Try adjusting your search or filters.
+                    <div className={styles.emptyContent}>
+                      <span className={styles.emptyIcon} aria-hidden="true">{'\u{1F50D}'}</span>
+                      <p className={styles.emptyText}>No members found</p>
+                      <p className={styles.emptyHint}>Try adjusting your search or filters.</p>
+                      <Button variant="secondary" size="sm" onClick={() => dispatch(resetFilters())}>
+                        Reset filters
+                      </Button>
+                    </div>
                   </td>
                 </tr>
               )

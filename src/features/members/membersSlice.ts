@@ -81,6 +81,14 @@ const membersSlice = createSlice({
     setPage(state, action: PayloadAction<number>) {
       state.params.page = action.payload
     },
+    resetFilters(state) {
+      state.params.search = ''
+      state.params.tier = undefined
+      state.params.status = undefined
+      state.params.page = 1
+      state.params.sort = 'name'
+      state.params.dir = 'asc'
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -102,5 +110,5 @@ const membersSlice = createSlice({
   },
 })
 
-export const { setSearch, setTier, setStatus, setSort, setPage } = membersSlice.actions
+export const { setSearch, setTier, setStatus, setSort, setPage, resetFilters } = membersSlice.actions
 export default membersSlice.reducer
