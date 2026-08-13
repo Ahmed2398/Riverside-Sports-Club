@@ -128,7 +128,7 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: tokens.$space-3;
+  gap: tokens.$space-2;
 }
 
 .sectionTitle {
@@ -140,10 +140,18 @@
   margin: 0;
 }
 
-.grid {
+.sessionsBox {
+  padding: tokens.$space-4;
+  background: tokens.$color-primary-wash;
+  border-radius: tokens.$radius-md;
+  border: 1px solid tokens.$color-line;
+}
+
+.membershipGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: tokens.$space-3;
+  grid-template-columns: repeat(2, 1fr);
+  gap: tokens.$space-4;
+  row-gap: tokens.$space-3;
 }
 
 .field {
@@ -163,12 +171,17 @@
 .fieldValue {
   font-size: tokens.$font-size-body;
   color: tokens.$color-ink;
+  word-break: break-word;
 }
 
 .confidentialGrid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: tokens.$space-3;
+}
+
+.confidentialFull {
+  margin-block-start: tokens.$space-3;
 }
 
 .sessionList {

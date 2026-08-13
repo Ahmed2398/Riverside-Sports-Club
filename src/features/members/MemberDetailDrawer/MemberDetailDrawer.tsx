@@ -65,16 +65,18 @@ export function MemberDetailDrawer() {
 
               <div className={styles.section}>
                 <h4 className={styles.sectionTitle}>Sessions This Month</h4>
-                <ProgressBar
-                  current={member.sessionsThisMonth}
-                  goal={member.monthlyGoal}
-                  label="Monthly Goal"
-                />
+                <div className={styles.sessionsBox}>
+                  <ProgressBar
+                    current={member.sessionsThisMonth}
+                    goal={member.monthlyGoal}
+                    label="Monthly Goal"
+                  />
+                </div>
               </div>
 
               <div className={styles.section}>
                 <h4 className={styles.sectionTitle}>Membership</h4>
-                <div className={styles.grid}>
+                <div className={styles.membershipGrid}>
                   <div className={styles.field}>
                     <span className={styles.fieldLabel}>Joined</span>
                     <span className={styles.fieldValue}>
@@ -82,12 +84,12 @@ export function MemberDetailDrawer() {
                     </span>
                   </div>
                   <div className={styles.field}>
-                    <span className={styles.fieldLabel}>Total Sessions</span>
-                    <span className={styles.fieldValue}>{member.totalSessions}</span>
-                  </div>
-                  <div className={styles.field}>
                     <span className={styles.fieldLabel}>Email</span>
                     <span className={styles.fieldValue}>{member.email}</span>
+                  </div>
+                  <div className={styles.field}>
+                    <span className={styles.fieldLabel}>Total Sessions</span>
+                    <span className={styles.fieldValue}>{member.totalSessions}</span>
                   </div>
                 </div>
               </div>
@@ -100,6 +102,8 @@ export function MemberDetailDrawer() {
                     label="Emergency Contact"
                     value={`${member.emergencyContact.name} · ${member.emergencyContact.phone}`}
                   />
+                </div>
+                <div className={styles.confidentialFull}>
                   <ConfidentialField label="Medical Notes" value={member.medicalNotes} />
                 </div>
               </div>
