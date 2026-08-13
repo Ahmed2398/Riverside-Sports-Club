@@ -2,21 +2,24 @@ import { useState, type ReactNode } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Sidebar } from '../Sidebar/Sidebar'
 import { Topbar } from '../Topbar/Topbar'
+import { useTranslation } from '../../../shared/i18n'
 import styles from './AppShell.module.scss'
 
 interface AppShellProps {
   children: ReactNode
 }
 
-const PAGE_TITLES: Record<string, string> = {
-  '/': 'Dashboard',
-  '/members': 'Members',
+const PAGE_TITLE_KEYS: Record<string, string> = {
+  '/': 'nav.dashboard',
+  '/members': 'nav.members',
 }
 
 export function AppShell({ children }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const location = useLocation()
-  const title = PAGE_TITLES[location.pathname] || 'Dashboard'
+  const { t } = useTranslation()
+  const titleKey = PAGE_TITLE_KEYS[location.pathname] || 'nav.dashboard'
+  const title = t(titleKey)
 
   return (
     <div className={styles.shell}>
