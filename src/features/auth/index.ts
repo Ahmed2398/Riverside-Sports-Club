@@ -1,2 +1,5 @@
-// Login form, session persistence logic
-export {}
+export { useAuth, useLogin } from './hooks'
+export { LoginPage } from './pages/LoginPage'
+export { LoginForm } from './components/LoginForm'
+export { loginUser, logout, clearError, restoreSession } from './authSlice'
+export type { AuthState } from './authSlice'

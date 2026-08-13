@@ -1,0 +1,46 @@
+@use '../../../styles/tokens';
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: tokens.$space-4;
+  background: tokens.$color-primary-wash;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: tokens.$space-5;
+  padding: tokens.$space-5;
+  background: tokens.$color-white;
+  border-radius: tokens.$radius-md;
+  border: 1px solid tokens.$color-line;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  max-width: 420px;
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: tokens.$font-size-h1;
+  font-weight: tokens.$font-weight-h1;
+  color: tokens.$color-primary;
+  margin-block-end: tokens.$space-1;
+}
+
+.subtitle {
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-ink-muted;
+}
+
+.hint {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+  text-align: center;
+}

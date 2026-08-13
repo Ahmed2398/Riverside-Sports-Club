@@ -1,6 +1,7 @@
 // ============================================================
 // SCSS Mixins — Riverside Sports Club Admin Dashboard
 // ============================================================
+@use 'tokens';
 
 // Tabular figures for aligned number columns
 @mixin tabular-numbers {
@@ -10,7 +11,7 @@
 
 // Accessible focus ring for interactive elements
 @mixin focus-ring {
-  outline: 2px solid $color-primary;
+  outline: 2px solid tokens.$color-primary;
   outline-offset: 2px;
 }
 

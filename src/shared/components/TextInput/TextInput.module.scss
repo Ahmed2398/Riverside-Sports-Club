@@ -1,0 +1,62 @@
+@use '../../../styles/tokens';
+@use '../../../styles/mixins';
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-1;
+}
+
+.label {
+  font-size: tokens.$font-size-label;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-ink;
+  text-align: start;
+}
+
+.input {
+  width: 100%;
+  padding-inline: tokens.$space-3;
+  padding-block: tokens.$space-2;
+  font-family: inherit;
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-ink;
+  background: tokens.$color-white;
+  border: 1px solid tokens.$color-line;
+  border-radius: tokens.$radius-md;
+  min-height: tokens.$min-tap-target;
+  transition: border-color 0.15s ease;
+
+  &::placeholder {
+    color: tokens.$color-ink-muted;
+  }
+
+  &:focus {
+    border-color: tokens.$color-primary;
+    outline: none;
+  }
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+.error {
+  border-color: tokens.$color-danger;
+
+  &:focus {
+    border-color: tokens.$color-danger;
+  }
+}
+
+.errorMessage {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-danger;
+  text-align: start;
+}
+
+.hint {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+  text-align: start;
+}

@@ -1,0 +1,18 @@
+@use '../../../styles/tokens';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-4;
+  width: 100%;
+  max-width: 360px;
+}
+
+.serverError {
+  margin-block-end: tokens.$space-1;
+}
+
+.submit {
+  width: 100%;
+  margin-block-start: tokens.$space-2;
+}

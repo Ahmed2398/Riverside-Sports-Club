@@ -1,0 +1,28 @@
+@use '../../../styles/tokens';
+
+.alert {
+  padding-inline: tokens.$space-3;
+  padding-block: tokens.$space-2;
+  border-radius: tokens.$radius-md;
+  font-size: tokens.$font-size-small;
+  text-align: start;
+  border: 1px solid transparent;
+}
+
+.error {
+  color: tokens.$color-danger;
+  background: rgba(tokens.$color-danger, 0.08);
+  border-color: rgba(tokens.$color-danger, 0.25);
+}
+
+.success {
+  color: tokens.$color-success;
+  background: rgba(tokens.$color-success, 0.08);
+  border-color: rgba(tokens.$color-success, 0.25);
+}
+
+.info {
+  color: tokens.$color-primary;
+  background: tokens.$color-primary-wash;
+  border-color: rgba(tokens.$color-primary, 0.2);
+}
