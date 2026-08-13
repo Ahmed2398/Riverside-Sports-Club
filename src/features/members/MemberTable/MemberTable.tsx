@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
+import { useLocale } from '../../../shared/contexts/LocaleContext'
 import { setSort, resetFilters } from '../membersSlice'
 import { openMemberDetail } from '../memberDetailSlice'
 import { StatusBadge, TierBadge, Button } from '../../../shared/components'
@@ -11,6 +12,7 @@ type SortColumn = NonNullable<MemberListParams['sort']>
 
 export function MemberTable() {
   const dispatch = useAppDispatch()
+  const { locale } = useLocale()
   const { data, status, params } = useAppSelector((s) => s.members)
   const isLoading = status === 'loading' || status === 'idle'
 
@@ -89,7 +91,7 @@ export function MemberTable() {
                 >
                   <td>
                     <div className={styles.memberCell}>
-                      <span className={styles.memberName}>{m.name.en}</span>
+                      <span className={styles.memberName}>{m.name[locale]}</span>
                       <span className={styles.memberNumber}>{m.memberNumber}</span>
                     </div>
                   </td>

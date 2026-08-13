@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
+import { useLocale } from '../../../shared/contexts/LocaleContext'
 import { closeMemberDetail, fetchMemberDetailData } from '../memberDetailSlice'
 import {
   StatusBadge,
@@ -14,6 +15,7 @@ import styles from './MemberDetailDrawer.module.scss'
 
 export function MemberDetailDrawer() {
   const dispatch = useAppDispatch()
+  const { locale } = useLocale()
   const { isOpen, member, sessions, status, selectedMemberId } = useAppSelector((s) => s.memberDetail)
   const [showConfidential, setShowConfidential] = useState(false)
 
@@ -41,9 +43,9 @@ export function MemberDetailDrawer() {
           {status === 'succeeded' && member && (
             <div className={styles.header}>
               <div className={styles.headerContent}>
-                <Avatar name={member.name.en} size="sm" />
+                <Avatar name={member.name[locale]} size="sm" />
                 <div className={styles.headerInfo}>
-                  <h2 className={styles.memberName}>{member.name.en}</h2>
+                  <h2 className={styles.memberName}>{member.name[locale]}</h2>
                   <span className={styles.memberNumber}>{member.memberNumber}</span>
                   <div className={styles.badges}>
                     <TierBadge tier={member.tier} />
