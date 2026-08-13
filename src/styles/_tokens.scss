@@ -1,2 +1,48 @@
-// Design tokens — color palette, spacing, type scale
-// Placeholder for now
+// ============================================================
+// Design Tokens — Riverside Sports Club Admin Dashboard
+// ============================================================
+
+// --- Colors ---
+$color-primary:       #2B5AA7;
+$color-primary-deep:  #21467F;
+$color-primary-wash:  #EEF3FA;
+$color-ink:           #1C2430;
+$color-ink-muted:     #57616F;
+$color-line:          #DDE3EA;
+$color-success:       #2E9E6B;
+$color-warning:       #D99A0B;
+$color-danger:        #D0453F;
+$color-white:         #FFFFFF;
+
+// --- Typography ---
+$font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Noto Sans Arabic', 'Helvetica Neue', Arial, sans-serif;
+
+$font-size-display: 32px;
+$font-size-h1:      24px;
+$font-size-h2:      19px;
+$font-size-body:    16px;
+$font-size-small:   14px;
+$font-size-label:   11px;
+
+$font-weight-display: 650;
+$font-weight-h1:      650;
+$font-weight-h2:      650;
+$font-weight-body:    400;
+$font-weight-small:   400;
+$font-weight-label:   600;
+
+$line-height-body:    1.5;
+$line-height-heading: 1.2;
+
+// --- Spacing (8pt grid, 4px half-step) ---
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+
+// --- Layout ---
+$min-tap-target: 44px;
+$radius-sm: 4px;
+$radius-md: 8px;

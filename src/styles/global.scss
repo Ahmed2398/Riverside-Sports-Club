@@ -1,0 +1,47 @@
+@use 'tokens';
+@use 'mixins';
+
+// ============================================================
+// Global / document-level styles only
+// No component-specific classes here — those belong in
+// each component's own .module.scss
+// ============================================================
+
+// --- CSS Reset ---
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// --- Base typography ---
+html {
+  font-family: tokens.$font-stack;
+  font-size: tokens.$font-size-body;
+  line-height: tokens.$line-height-body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: tokens.$color-ink;
+  background: tokens.$color-white;
+  min-height: 100vh;
+}
+
+// --- Heading defaults ---
+h1, h2, h3, h4, h5, h6 {
+  line-height: tokens.$line-height-heading;
+  font-weight: tokens.$font-weight-h1;
+}
+
+// --- Direction handling (document-level) ---
+html[dir='rtl'] {
+  text-align: start;
+}
+
+html[dir='ltr'] {
+  text-align: start;
+}

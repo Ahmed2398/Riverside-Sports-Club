@@ -1,2 +1,28 @@
-// SCSS mixins
-// Placeholder for now
+// ============================================================
+// SCSS Mixins — Riverside Sports Club Admin Dashboard
+// ============================================================
+
+// Tabular figures for aligned number columns
+@mixin tabular-numbers {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+// Accessible focus ring for interactive elements
+@mixin focus-ring {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+// Visually hide content but keep it accessible to screen readers
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
