@@ -51,6 +51,7 @@
 .navItem {
   display: flex;
   align-items: center;
+  gap: tokens.$space-3;
   padding-inline: tokens.$space-3;
   padding-block: tokens.$space-2;
   background: transparent;
@@ -72,6 +73,19 @@
   &:focus-visible {
     @include mixins.focus-ring;
   }
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.navLabel {
+  flex: 1;
 }
 
 .active {
