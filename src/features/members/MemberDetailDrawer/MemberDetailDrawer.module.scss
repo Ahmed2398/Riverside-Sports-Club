@@ -32,6 +32,7 @@
   justify-content: space-between;
   padding: tokens.$space-4;
   border-block-end: 1px solid tokens.$color-line;
+  flex-shrink: 0;
 }
 
 .title {
@@ -45,15 +46,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: tokens.$min-tap-target;
-  height: tokens.$min-tap-target;
+  width: 32px;
+  height: 32px;
   border: none;
   background: transparent;
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1;
-  color: tokens.$color-ink-muted;
+  color: tokens.$color-ink;
   cursor: pointer;
   border-radius: tokens.$radius-sm;
+  padding: 0;
+  transition: background-color 0.15s ease;
 
   &:hover {
     background: tokens.$color-line;
