@@ -1,0 +1,38 @@
+@use '../../../styles/tokens';
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-1;
+}
+
+.label {
+  font-size: tokens.$font-size-label;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-ink-muted;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: start;
+}
+
+.valueBox {
+  padding: tokens.$space-3;
+  background: tokens.$color-white;
+  border: 1px solid tokens.$color-line;
+  border-radius: tokens.$radius-md;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(tokens.$color-ink-muted, 0.08) 8px,
+    rgba(tokens.$color-ink-muted, 0.08) 16px
+  );
+}
+
+.value {
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-ink;
+  line-height: tokens.$line-height-body;
+  text-align: start;
+  display: block;
+}

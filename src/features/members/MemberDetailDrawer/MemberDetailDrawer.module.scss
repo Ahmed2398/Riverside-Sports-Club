@@ -1,0 +1,221 @@
+@use '../../../styles/tokens';
+@use '../../../styles/mixins';
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 200;
+  animation: fadeIn 0.2s ease;
+}
+
+.drawer {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: min(480px, 100vw);
+  background: tokens.$color-white;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: tokens.$space-4;
+  border-block-end: 1px solid tokens.$color-line;
+}
+
+.title {
+  font-size: tokens.$font-size-h2;
+  font-weight: tokens.$font-weight-h2;
+  color: tokens.$color-ink;
+  margin: 0;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: tokens.$min-tap-target;
+  height: tokens.$min-tap-target;
+  border: none;
+  background: transparent;
+  font-size: 32px;
+  line-height: 1;
+  color: tokens.$color-ink-muted;
+  cursor: pointer;
+  border-radius: tokens.$radius-sm;
+
+  &:hover {
+    background: tokens.$color-line;
+  }
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: tokens.$space-4;
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-5;
+}
+
+.loading,
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: tokens.$space-3;
+  padding: tokens.$space-5;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: tokens.$space-3;
+  padding-block-end: tokens.$space-4;
+  border-block-end: 1px solid tokens.$color-line;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: tokens.$color-primary-wash;
+  color: tokens.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: tokens.$font-size-h1;
+  font-weight: tokens.$font-weight-h1;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: tokens.$space-1;
+}
+
+.memberName {
+  font-size: tokens.$font-size-h2;
+  font-weight: tokens.$font-weight-h2;
+  color: tokens.$color-ink;
+  margin: 0;
+}
+
+.memberNumber {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+}
+
+.badges {
+  display: flex;
+  gap: tokens.$space-2;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-3;
+}
+
+.sectionTitle {
+  font-size: tokens.$font-size-label;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-ink-muted;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: tokens.$space-3;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-1;
+}
+
+.fieldLabel {
+  font-size: tokens.$font-size-label;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-ink-muted;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fieldValue {
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-ink;
+}
+
+.confidentialGrid {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-3;
+}
+
+.sessionList {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-2;
+}
+
+.sessionItem {
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-3;
+  padding: tokens.$space-3;
+  background: tokens.$color-primary-wash;
+  border-radius: tokens.$radius-md;
+}
+
+.sessionDate {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+  min-width: 80px;
+}
+
+.sessionClass {
+  flex: 1;
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-ink;
+}
+
+.sessionDuration {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+}
+
+.empty {
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-ink-muted;
+  text-align: center;
+  padding: tokens.$space-4;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}

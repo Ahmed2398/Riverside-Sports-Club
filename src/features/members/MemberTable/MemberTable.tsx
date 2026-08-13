@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { setSort, resetFilters } from '../membersSlice'
+import { openMemberDetail } from '../memberDetailSlice'
 import { StatusBadge, TierBadge, Button } from '../../../shared/components'
 import type { MemberListParams } from '../../../shared/api/types'
 import styles from './MemberTable.module.scss'
@@ -81,7 +82,11 @@ export function MemberTable() {
                 </tr>
               )
               : data.map((m) => (
-                <tr key={m.id}>
+                <tr
+                  key={m.id}
+                  className={styles.clickableRow}
+                  onClick={() => dispatch(openMemberDetail(m.id))}
+                >
                   <td>
                     <div className={styles.memberCell}>
                       <span className={styles.memberName}>{m.name.en}</span>

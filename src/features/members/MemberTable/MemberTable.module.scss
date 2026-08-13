@@ -35,6 +35,15 @@
   border-block-end: none;
 }
 
+.clickableRow {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: tokens.$color-primary-wash;
+  }
+}
+
 .colMember {
   width: 40%;
 }

@@ -7,6 +7,7 @@ import { StatCardGrid } from '../StatCardGrid/StatCardGrid'
 import { MemberFilterBar } from '../../members/MemberFilterBar/MemberFilterBar'
 import { MemberTable } from '../../members/MemberTable/MemberTable'
 import { Pagination } from '../../members/Pagination/Pagination'
+import { MemberDetailDrawer } from '../../members/MemberDetailDrawer/MemberDetailDrawer'
 import styles from './DashboardPage.module.scss'
 
 const SEARCH_DEBOUNCE_MS = 300
@@ -34,11 +35,14 @@ export function DashboardPage() {
   }, [dispatch, debouncedSearch, memberParams.tier, memberParams.status, memberParams.sort, memberParams.dir, memberParams.page])
 
   return (
-    <div className={styles.page}>
-      <StatCardGrid />
-      <MemberFilterBar />
-      <MemberTable />
-      <Pagination />
-    </div>
+    <>
+      <div className={styles.page}>
+        <StatCardGrid />
+        <MemberFilterBar />
+        <MemberTable />
+        <Pagination />
+      </div>
+      <MemberDetailDrawer />
+    </>
   )
 }
