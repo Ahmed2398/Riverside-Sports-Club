@@ -11,6 +11,24 @@
   border-radius: tokens.$radius-md;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: tokens.$radius-sm;
+  background: var(--color-primary-wash);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
 .label {
   font-size: tokens.$font-size-label;
   font-weight: tokens.$font-weight-label;

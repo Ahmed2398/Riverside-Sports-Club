@@ -1,3 +1,4 @@
+import { type ReactNode } from 'react'
 import { useTranslation } from '../../../shared/i18n'
 import styles from './StatCard.module.scss'
 
@@ -7,6 +8,7 @@ interface StatCardProps {
   loading?: boolean
   variant?: 'default' | 'error'
   onRetry?: () => void
+  icon?: ReactNode
 }
 
 export function StatCard({
@@ -15,13 +17,17 @@ export function StatCard({
   loading = false,
   variant = 'default',
   onRetry,
+  icon,
 }: StatCardProps) {
   const { t } = useTranslation()
 
   if (variant === 'error') {
     return (
       <div className={`${styles.card} ${styles.error}`} role="status">
-        <span className={styles.label}>{label}</span>
+        <div className={styles.header}>
+          <span className={styles.label}>{label}</span>
+          {icon && <span className={styles.icon}>{icon}</span>}
+        </div>
         <div className={styles.errorBody}>
           <span className={styles.errorIcon} aria-hidden="true">{'\u26A0'}</span>
           <span className={styles.errorText}>{t('stats.failed')}</span>
@@ -41,7 +47,10 @@ export function StatCard({
 
   return (
     <div className={styles.card}>
-      <span className={styles.label}>{label}</span>
+      <div className={styles.header}>
+        <span className={styles.label}>{label}</span>
+        {icon && <span className={styles.icon}>{icon}</span>}
+      </div>
       {loading || value === undefined ? (
         <div className={styles.skeleton} />
       ) : (
