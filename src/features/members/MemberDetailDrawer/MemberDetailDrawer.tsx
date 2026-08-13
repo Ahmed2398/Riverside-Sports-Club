@@ -148,7 +148,7 @@ export function MemberDetailDrawer() {
                         <span className={styles.sessionDate}>
                           {new Date(s.date).toLocaleDateString()}
                         </span>
-                        <span className={styles.sessionClass}>{s.className.en}</span>
+                        <span className={styles.sessionClass}>{s.className[locale]}</span>
                         <span className={styles.sessionDuration}>{s.durationMinutes} min</span>
                       </div>
                     ))}
