@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { setSort } from '../membersSlice'
-import { StatusBadge } from '../../../shared/components'
+import { StatusBadge, TierBadge } from '../../../shared/components'
 import type { MemberListParams } from '../../../shared/api/types'
 import styles from './MemberTable.module.scss'
 
@@ -73,7 +73,7 @@ export function MemberTable() {
                       <span className={styles.memberNumber}>{m.memberNumber}</span>
                     </div>
                   </td>
-                  <td><span className={styles.tierLabel}>{m.tier}</span></td>
+                  <td><TierBadge tier={m.tier} /></td>
                   <td><StatusBadge status={m.status} /></td>
                   <td className={styles.sessionsCell}>{m.sessionsThisMonth}</td>
                 </tr>
