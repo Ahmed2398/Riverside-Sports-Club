@@ -1,7 +1,15 @@
+import { Navigate } from 'react-router-dom'
 import { LoginForm } from '../components/LoginForm'
+import { useAuth } from '../hooks'
 import styles from './LoginPage.module.scss'
 
 export function LoginPage() {
+  const { isAuthenticated } = useAuth()
+
+  if (isAuthenticated) {
+    return <Navigate to="/" replace />
+  }
+
   return (
     <div className={styles.page}>
       <div className={styles.card}>
