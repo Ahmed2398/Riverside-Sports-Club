@@ -63,6 +63,53 @@
   color: tokens.$color-primary;
 }
 
+.sortBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: tokens.$space-1;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  padding: 0;
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+.memberCell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.memberName {
+  font-size: tokens.$font-size-body;
+  font-weight: tokens.$font-weight-body;
+  color: tokens.$color-ink;
+}
+
+.memberNumber {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+}
+
+.tierLabel {
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-ink;
+  text-transform: capitalize;
+}
+
+.sessionsCell {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
 .skeleton {
   height: 16px;
   width: 100%;

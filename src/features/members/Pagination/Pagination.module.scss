@@ -62,6 +62,14 @@
   }
 }
 
+.ellipsis {
+  display: flex;
+  align-items: center;
+  padding-inline: tokens.$space-1;
+  color: tokens.$color-ink-muted;
+  font-size: tokens.$font-size-small;
+}
+
 @media (max-width: 639px) {
   .pagination {
     flex-direction: column;
