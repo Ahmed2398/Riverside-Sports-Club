@@ -40,7 +40,8 @@ export const ar = {
   // Members
   members: {
     title: 'الأعضاء',
-    searchPlaceholder: 'البحث عن الأعضاء...',
+    searchPlaceholder: 'البحث بالاسم أو رقم العضو أو البريد الإلكتروني...',
+    searchLabel: 'بحث',
     memberNumber: 'رقم العضو',
     name: 'الاسم',
     tier: 'الفئة',
@@ -50,6 +51,8 @@ export const ar = {
     noMembers: 'لا يوجد أعضاء',
     noMembersHint: 'حاول تعديل البحث أو التصفية',
     resetFilters: 'إعادة تعيين التصفية',
+    allTiers: 'جميع الفئات',
+    allStatuses: 'جميع الحالات',
     
     // Tiers
     tierBasic: 'أساسي',
@@ -83,9 +86,11 @@ export const ar = {
 
   // Stats
   stats: {
-    totalMembers: 'إجمالي الأعضاء',
-    activeMembers: 'الأعضاء النشطون',
-    sessionsToday: 'حصص اليوم',
+    totalMembers: 'الأعضاء',
+    activeMembers: 'النشطون',
+    sessionsToday: 'الحصص',
+    sessionsThisMonth: 'الحصص',
+    avgSessions: 'متوسط الحصص',
     revenue: 'الإيرادات',
     failed: 'فشل',
     retry: 'إعادة المحاولة',

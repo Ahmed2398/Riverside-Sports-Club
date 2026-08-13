@@ -1,3 +1,4 @@
+import { useTranslation } from '../../../shared/i18n'
 import styles from './StatCard.module.scss'
 
 interface StatCardProps {
@@ -15,20 +16,22 @@ export function StatCard({
   variant = 'default',
   onRetry,
 }: StatCardProps) {
+  const { t } = useTranslation()
+
   if (variant === 'error') {
     return (
       <div className={`${styles.card} ${styles.error}`} role="status">
         <span className={styles.label}>{label}</span>
         <div className={styles.errorBody}>
           <span className={styles.errorIcon} aria-hidden="true">{'\u26A0'}</span>
-          <span className={styles.errorText}>Failed</span>
+          <span className={styles.errorText}>{t('stats.failed')}</span>
           {onRetry && (
             <button
               type="button"
               className={styles.retry}
               onClick={onRetry}
             >
-              {'\u00B7'} Retry
+              {'\u00B7'} {t('stats.retry')}
             </button>
           )}
         </div>

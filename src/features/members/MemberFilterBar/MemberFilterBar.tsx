@@ -1,10 +1,12 @@
 import { TextInput } from '../../../shared/components'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
+import { useTranslation } from '../../../shared/i18n'
 import { setSearch, setTier, setStatus } from '../membersSlice'
 import styles from './MemberFilterBar.module.scss'
 
 export function MemberFilterBar() {
   const dispatch = useAppDispatch()
+  const { t } = useTranslation()
   const params = useAppSelector((s) => s.members.params)
 
   return (
@@ -13,15 +15,15 @@ export function MemberFilterBar() {
         <TextInput
           name="search"
           type="search"
-          label="Search"
-          placeholder="Search by name, member number, or email…"
+          label={t('members.searchLabel')}
+          placeholder={t('members.searchPlaceholder')}
           value={params.search}
           onChange={(e) => dispatch(setSearch(e.target.value))}
         />
       </div>
       <div className={styles.filters}>
         <label className={styles.selectField}>
-          <span className={styles.selectLabel}>Tier</span>
+          <span className={styles.selectLabel}>{t('members.tier')}</span>
           <select
             className={styles.select}
             value={params.tier ?? ''}
@@ -29,14 +31,14 @@ export function MemberFilterBar() {
               dispatch(setTier(e.target.value === '' ? undefined : e.target.value as 'basic' | 'standard' | 'premium'))
             }
           >
-            <option value="">All tiers</option>
-            <option value="basic">Basic</option>
-            <option value="standard">Standard</option>
-            <option value="premium">Premium</option>
+            <option value="">{t('members.allTiers')}</option>
+            <option value="basic">{t('members.tierBasic')}</option>
+            <option value="standard">{t('members.tierStandard')}</option>
+            <option value="premium">{t('members.tierPremium')}</option>
           </select>
         </label>
         <label className={styles.selectField}>
-          <span className={styles.selectLabel}>Status</span>
+          <span className={styles.selectLabel}>{t('members.status')}</span>
           <select
             className={styles.select}
             value={params.status ?? ''}
@@ -44,10 +46,10 @@ export function MemberFilterBar() {
               dispatch(setStatus(e.target.value === '' ? undefined : e.target.value as 'active' | 'paused' | 'expired'))
             }
           >
-            <option value="">All statuses</option>
-            <option value="active">Active</option>
-            <option value="paused">Paused</option>
-            <option value="expired">Expired</option>
+            <option value="">{t('members.allStatuses')}</option>
+            <option value="active">{t('members.statusActive')}</option>
+            <option value="paused">{t('members.statusPaused')}</option>
+            <option value="expired">{t('members.statusExpired')}</option>
           </select>
         </label>
       </div>

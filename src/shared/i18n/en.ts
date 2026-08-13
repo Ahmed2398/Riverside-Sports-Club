@@ -40,7 +40,8 @@ export const en = {
   // Members
   members: {
     title: 'Members',
-    searchPlaceholder: 'Search members...',
+    searchPlaceholder: 'Search by name, member number, or email…',
+    searchLabel: 'Search',
     memberNumber: 'Member Number',
     name: 'Name',
     tier: 'Tier',
@@ -50,6 +51,8 @@ export const en = {
     noMembers: 'No members found',
     noMembersHint: 'Try adjusting your search or filters',
     resetFilters: 'Reset filters',
+    allTiers: 'All tiers',
+    allStatuses: 'All statuses',
     
     // Tiers
     tierBasic: 'Basic',
@@ -83,9 +86,11 @@ export const en = {
 
   // Stats
   stats: {
-    totalMembers: 'Total Members',
-    activeMembers: 'Active Members',
-    sessionsToday: 'Sessions Today',
+    totalMembers: 'Members',
+    activeMembers: 'Active',
+    sessionsToday: 'Sessions',
+    sessionsThisMonth: 'Sessions',
+    avgSessions: 'Avg Sessions',
     revenue: 'Revenue',
     failed: 'Failed',
     retry: 'Retry',

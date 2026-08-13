@@ -1,4 +1,19 @@
 import '@testing-library/jest-dom'
+import { vi } from 'vitest'
+
+// Mock LocaleProvider and useLocale for tests
+vi.mock('../shared/contexts/LocaleContext', () => ({
+  LocaleProvider: ({ children }: { children: React.ReactNode }) => children,
+  useLocale: () => ({ locale: 'en', setLocale: vi.fn() }),
+}))
+
+// Mock useTranslation hook
+vi.mock('../shared/i18n/useTranslation', () => ({
+  useTranslation: () => ({
+    t: (key: string) => key,
+    locale: 'en',
+  }),
+}))
 
 // Provide a working localStorage mock for jsdom
 const localStorageMock = (() => {

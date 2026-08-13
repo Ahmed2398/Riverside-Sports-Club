@@ -10,13 +10,13 @@ describe('StatCard', () => {
 
   it('renders "Failed" text in error variant', () => {
     render(<StatCard label="Sessions" variant="error" />)
-    expect(screen.getByText('Failed')).toBeInTheDocument()
+    expect(screen.getByText('stats.failed')).toBeInTheDocument()
   })
 
   it('renders a retry button in error variant when onRetry is provided', () => {
     const onRetry = vi.fn()
     render(<StatCard label="Sessions" variant="error" onRetry={onRetry} />)
-    const retry = screen.getByText(/Retry/)
+    const retry = screen.getByText(/stats\.retry/)
     expect(retry).toBeInTheDocument()
   })
 
@@ -24,7 +24,7 @@ describe('StatCard', () => {
     const onRetry = vi.fn()
     const user = (await import('@testing-library/user-event')).default.setup()
     render(<StatCard label="Sessions" variant="error" onRetry={onRetry} />)
-    await user.click(screen.getByText(/Retry/))
+    await user.click(screen.getByText(/stats\.retry/))
     expect(onRetry).toHaveBeenCalledOnce()
   })
 })
