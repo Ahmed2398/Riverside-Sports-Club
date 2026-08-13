@@ -53,6 +53,11 @@
   background-repeat: no-repeat;
   background-position: right tokens.$space-3 center;
 
+  // In RTL mode, flip arrow to the left
+  [dir='rtl'] & {
+    background-position: left tokens.$space-3 center;
+  }
+
   &:hover {
     border-color: var(--color-ink-muted);
   }
