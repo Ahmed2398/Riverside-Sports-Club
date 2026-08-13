@@ -1,3 +1,4 @@
+import { useTranslation } from '../../i18n'
 import styles from './TierBadge.module.scss'
 
 export type Tier = 'basic' | 'standard' | 'premium'
@@ -8,25 +9,25 @@ interface TierBadgeProps {
 
 const TIER_CONFIG: Record<
   Tier,
-  { label: string; icon: string; className: string }
+  { labelKey: string; className: string }
 > = {
-  basic: { label: 'Basic', icon: '\u25CB', className: 'basic' },
-  standard: { label: 'Standard', icon: '\u25D0', className: 'standard' },
-  premium: { label: 'Premium', icon: '\u25CF', className: 'premium' },
+  basic: { labelKey: 'members.tierBasic', className: 'basic' },
+  standard: { labelKey: 'members.tierStandard', className: 'standard' },
+  premium: { labelKey: 'members.tierPremium', className: 'premium' },
 }
 
 export function TierBadge({ tier }: TierBadgeProps) {
+  const { t } = useTranslation()
   const config = TIER_CONFIG[tier]
+  const label = t(config.labelKey)
 
   return (
     <span
       className={`${styles.badge} ${styles[config.className]}`}
-      aria-label={`Tier: ${config.label}`}
+      aria-label={`Tier: ${label}`}
     >
-      <span className={styles.icon} aria-hidden="true">
-        {config.icon}
-      </span>
-      <span className={styles.label}>{config.label}</span>
+      <span className={styles.icon} aria-hidden="true" />
+      <span className={styles.label}>{label}</span>
     </span>
   )
 }

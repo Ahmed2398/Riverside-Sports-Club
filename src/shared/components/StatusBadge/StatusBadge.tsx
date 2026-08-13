@@ -1,3 +1,4 @@
+import { useTranslation } from '../../i18n'
 import styles from './StatusBadge.module.scss'
 
 export type MemberStatus = 'active' | 'paused' | 'expired'
@@ -8,26 +9,26 @@ interface StatusBadgeProps {
 
 const STATUS_CONFIG: Record<
   MemberStatus,
-  { label: string; icon: string; className: string }
+  { labelKey: string; className: string }
 > = {
-  active: { label: 'Active', icon: '\u25CF', className: 'active' },
-  paused: { label: 'Paused', icon: '\u25D0', className: 'paused' },
-  expired: { label: 'Expired', icon: '\u25CB', className: 'expired' },
+  active: { labelKey: 'members.statusActive', className: 'active' },
+  paused: { labelKey: 'members.statusPaused', className: 'paused' },
+  expired: { labelKey: 'members.statusExpired', className: 'expired' },
 }
 
 export function StatusBadge({ status }: StatusBadgeProps) {
+  const { t } = useTranslation()
   const config = STATUS_CONFIG[status]
+  const label = t(config.labelKey)
 
   return (
     <span
       className={`${styles.badge} ${styles[config.className]}`}
       role="status"
-      aria-label={config.label}
+      aria-label={label}
     >
-      <span className={styles.icon} aria-hidden="true">
-        {config.icon}
-      </span>
-      <span className={styles.label}>{config.label}</span>
+      <span className={styles.icon} aria-hidden="true" />
+      <span className={styles.label}>{label}</span>
     </span>
   )
 }

@@ -3,10 +3,10 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: tokens.$space-1;
-  padding-inline: tokens.$space-2;
-  padding-block: tokens.$space-1;
-  border-radius: tokens.$radius-sm;
+  gap: 6px;
+  padding-inline: 10px;
+  padding-block: 5px;
+  border-radius: 100px;
   font-size: tokens.$font-size-label;
   font-weight: tokens.$font-weight-label;
   line-height: 1;
@@ -15,33 +15,48 @@
 }
 
 .icon {
-  font-size: 10px;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: block;
 }
 
 .label {
   text-align: start;
 }
 
-// Basic — muted + outlined circle (○)
+// Basic — muted
 .basic {
   color: var(--color-ink-muted);
   background: rgba(var(--color-ink-muted), 0.08);
-  border-color: rgba(var(--color-ink-muted), 0.25);
+  border-color: rgba(var(--color-ink-muted), 0.2);
+
+  .icon {
+    background: var(--color-ink-muted);
+    opacity: 0.5;
+  }
 }
 
-// Standard — primary + half-filled circle (◐)
+// Standard — primary
 .standard {
   color: var(--color-primary);
   background: var(--color-primary-wash);
-  border-color: rgba(var(--color-primary), 0.25);
+  border-color: rgba(var(--color-primary), 0.2);
+
+  .icon {
+    background: var(--color-primary);
+  }
 }
 
-// Premium — deep primary + filled circle (●)
+// Premium — deep primary with ring
 .premium {
   color: var(--color-primary-deep);
   background: rgba(var(--color-primary-deep), 0.1);
-  border-color: rgba(var(--color-primary-deep), 0.3);
+  border-color: rgba(var(--color-primary-deep), 0.25);
+
+  .icon {
+    background: var(--color-primary-deep);
+    box-shadow: 0 0 0 2px rgba(var(--color-primary-deep), 0.2);
+  }
 }
