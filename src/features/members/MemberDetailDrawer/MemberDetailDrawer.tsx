@@ -8,6 +8,7 @@ import {
   ConfidentialField,
   Spinner,
   Button,
+  Avatar,
 } from '../../../shared/components'
 import styles from './MemberDetailDrawer.module.scss'
 
@@ -51,9 +52,7 @@ export function MemberDetailDrawer() {
           {status === 'succeeded' && member && (
             <>
               <div className={styles.profile}>
-                <div className={styles.avatar} aria-hidden="true">
-                  {member.name.en.charAt(0)}
-                </div>
+                <Avatar name={member.name.en} size="md" />
                 <div className={styles.profileInfo}>
                   <h3 className={styles.memberName}>{member.name.en}</h3>
                   <span className={styles.memberNumber}>{member.memberNumber}</span>

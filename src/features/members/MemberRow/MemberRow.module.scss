@@ -1,0 +1,65 @@
+@use '../../../styles/tokens';
+@use '../../../styles/mixins';
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: tokens.$space-3;
+  background: tokens.$color-white;
+  border: 1px solid tokens.$color-line;
+  border-radius: tokens.$radius-md;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: tokens.$color-primary-wash;
+    border-color: tokens.$color-primary;
+  }
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-3;
+  flex: 1;
+  min-width: 0;
+}
+
+.textStack {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-1;
+  min-width: 0;
+  flex: 1;
+}
+
+.name {
+  font-size: tokens.$font-size-body;
+  font-weight: 600;
+  color: tokens.$color-ink;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.memberNumber {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-inline-start: tokens.$space-3;
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}

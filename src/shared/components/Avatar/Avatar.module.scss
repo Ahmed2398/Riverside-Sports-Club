@@ -1,0 +1,12 @@
+@use '../../../styles/tokens';
+
+.avatar {
+  border-radius: 50%;
+  background: tokens.$color-primary-wash;
+  color: tokens.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 650;
+  flex-shrink: 0;
+}
