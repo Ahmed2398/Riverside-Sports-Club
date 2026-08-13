@@ -8,6 +8,7 @@ import { LoginPage } from '../features/auth/pages/LoginPage'
 import { AppShell } from './layout/AppShell/AppShell'
 import { DashboardPage } from '../features/summary/pages/DashboardPage'
 import { MembersPage } from '../features/members/pages/MembersPage'
+import { NotFoundPage } from '../features/notFound/NotFoundPage'
 
 function ProtectedLayout() {
   const { isAuthenticated, status } = useAuth()
@@ -25,7 +26,7 @@ function ProtectedLayout() {
       <Routes>
         <Route path="/" element={<DashboardPage />} />
         <Route path="/members" element={<MembersPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </AppShell>
   )

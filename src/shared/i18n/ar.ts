@@ -105,6 +105,14 @@ export const ar = {
     page: 'صفحة',
   },
 
+  // Not Found
+  notFound: {
+    title: 'الصفحة غير موجودة',
+    description: 'الصفحة التي تبحث عنها قد تكون قد حُذفت أو تغيّر اسمها أو غير متاحة مؤقتاً.',
+    goHome: 'العودة للوحة التحكم',
+    goBack: 'العودة',
+  },
+
   // Accessibility
   a11y: {
     openMenu: 'فتح قائمة التنقل',

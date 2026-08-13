@@ -105,6 +105,14 @@ export const en = {
     page: 'Page',
   },
 
+  // Not Found
+  notFound: {
+    title: 'Page Not Found',
+    description: 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.',
+    goHome: 'Back to Dashboard',
+    goBack: 'Go Back',
+  },
+
   // Accessibility
   a11y: {
     openMenu: 'Open navigation menu',
