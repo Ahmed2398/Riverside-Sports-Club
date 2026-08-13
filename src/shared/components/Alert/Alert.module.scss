@@ -10,19 +10,19 @@
 }
 
 .error {
-  color: tokens.$color-danger;
-  background: rgba(tokens.$color-danger, 0.08);
-  border-color: rgba(tokens.$color-danger, 0.25);
+  color: var(--color-danger);
+  background: rgba(var(--color-danger), 0.08);
+  border-color: rgba(var(--color-danger), 0.25);
 }
 
 .success {
-  color: tokens.$color-success;
-  background: rgba(tokens.$color-success, 0.08);
-  border-color: rgba(tokens.$color-success, 0.25);
+  color: var(--color-success);
+  background: rgba(var(--color-success), 0.08);
+  border-color: rgba(var(--color-success), 0.25);
 }
 
 .info {
-  color: tokens.$color-primary;
-  background: tokens.$color-primary-wash;
-  border-color: rgba(tokens.$color-primary, 0.2);
+  color: var(--color-primary);
+  background: var(--color-primary-wash);
+  border-color: rgba(var(--color-primary), 0.2);
 }

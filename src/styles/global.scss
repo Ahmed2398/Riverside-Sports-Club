@@ -26,9 +26,10 @@ html {
 }
 
 body {
-  color: tokens.$color-ink;
-  background: tokens.$color-white;
+  color: var(--color-ink);
+  background: var(--color-bg);
   min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 // --- Heading defaults ---

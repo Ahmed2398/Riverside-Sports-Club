@@ -10,7 +10,7 @@
 .label {
   font-size: tokens.$font-size-label;
   font-weight: tokens.$font-weight-label;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-align: start;
@@ -22,19 +22,19 @@
   padding-block: tokens.$space-2;
   font-family: inherit;
   font-size: tokens.$font-size-body;
-  color: tokens.$color-ink;
-  background: tokens.$color-white;
-  border: 1px solid tokens.$color-line;
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
   border-radius: tokens.$radius-md;
   min-height: tokens.$min-tap-target;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
   &::placeholder {
-    color: tokens.$color-ink-muted;
+    color: var(--color-ink-muted);
   }
 
   &:hover {
-    border-color: tokens.$color-ink-muted;
+    border-color: var(--color-ink-muted);
   }
 
   &:focus,
@@ -44,21 +44,21 @@
 }
 
 .error {
-  border-color: tokens.$color-danger;
+  border-color: var(--color-danger);
 
   &:focus {
-    border-color: tokens.$color-danger;
+    border-color: var(--color-danger);
   }
 }
 
 .errorMessage {
   font-size: tokens.$font-size-small;
-  color: tokens.$color-danger;
+  color: var(--color-danger);
   text-align: start;
 }
 
 .hint {
   font-size: tokens.$font-size-small;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   text-align: start;
 }

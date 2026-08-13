@@ -40,21 +40,21 @@
 
 // --- Variants ---
 .primary {
-  background: tokens.$color-primary;
-  color: tokens.$color-white;
+  background: var(--color-primary);
+  color: var(--color-surface);
 
   &:hover:not(:disabled) {
-    background: tokens.$color-primary-deep;
+    background: var(--color-primary-deep);
   }
 }
 
 .secondary {
   background: transparent;
-  color: tokens.$color-primary;
-  border-color: tokens.$color-line;
+  color: var(--color-primary);
+  border-color: var(--color-line);
 
   &:hover:not(:disabled) {
-    background: tokens.$color-primary-wash;
+    background: var(--color-primary-wash);
   }
 }
 

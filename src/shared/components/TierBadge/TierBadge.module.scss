@@ -27,21 +27,21 @@
 
 // Basic — muted + outlined circle (○)
 .basic {
-  color: tokens.$color-ink-muted;
-  background: rgba(tokens.$color-ink-muted, 0.08);
-  border-color: rgba(tokens.$color-ink-muted, 0.25);
+  color: var(--color-ink-muted);
+  background: rgba(var(--color-ink-muted), 0.08);
+  border-color: rgba(var(--color-ink-muted), 0.25);
 }
 
 // Standard — primary + half-filled circle (◐)
 .standard {
-  color: tokens.$color-primary;
-  background: tokens.$color-primary-wash;
-  border-color: rgba(tokens.$color-primary, 0.25);
+  color: var(--color-primary);
+  background: var(--color-primary-wash);
+  border-color: rgba(var(--color-primary), 0.25);
 }
 
 // Premium — deep primary + filled circle (●)
 .premium {
-  color: tokens.$color-primary-deep;
-  background: rgba(tokens.$color-primary-deep, 0.1);
-  border-color: rgba(tokens.$color-primary-deep, 0.3);
+  color: var(--color-primary-deep);
+  background: rgba(var(--color-primary-deep), 0.1);
+  border-color: rgba(var(--color-primary-deep), 0.3);
 }

@@ -27,21 +27,21 @@
 
 // Active — green + filled circle (●)
 .active {
-  color: tokens.$color-success;
-  background: rgba(tokens.$color-success, 0.08);
-  border-color: rgba(tokens.$color-success, 0.25);
+  color: var(--color-success);
+  background: rgba(var(--color-success), 0.08);
+  border-color: rgba(var(--color-success), 0.25);
 }
 
 // Paused — yellow + half-filled circle (◐)
 .paused {
-  color: tokens.$color-warning;
-  background: rgba(tokens.$color-warning, 0.08);
-  border-color: rgba(tokens.$color-warning, 0.25);
+  color: var(--color-warning);
+  background: rgba(var(--color-warning), 0.08);
+  border-color: rgba(var(--color-warning), 0.25);
 }
 
 // Expired — red + outlined circle (○)
 .expired {
-  color: tokens.$color-danger;
-  background: rgba(tokens.$color-danger, 0.08);
-  border-color: rgba(tokens.$color-danger, 0.25);
+  color: var(--color-danger);
+  background: rgba(var(--color-danger), 0.08);
+  border-color: rgba(var(--color-danger), 0.25);
 }

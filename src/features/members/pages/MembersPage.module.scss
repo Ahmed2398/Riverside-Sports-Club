@@ -20,6 +20,6 @@
 .title {
   font-size: tokens.$font-size-h1;
   font-weight: tokens.$font-weight-h1;
-  color: tokens.$color-ink;
+  color: var(--color-ink);
   margin: 0;
 }

@@ -6,15 +6,15 @@
   flex-direction: column;
   gap: tokens.$space-2;
   padding: tokens.$space-4;
-  background: tokens.$color-white;
-  border: 1px solid tokens.$color-line;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
   border-radius: tokens.$radius-md;
 }
 
 .label {
   font-size: tokens.$font-size-label;
   font-weight: tokens.$font-weight-label;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   text-align: start;
@@ -23,7 +23,7 @@
 .skeleton {
   height: 28px;
   width: 60%;
-  background: tokens.$color-line;
+  background: var(--color-line);
   border-radius: tokens.$radius-sm;
   animation: shimmer 1.5s ease-in-out infinite;
 }
@@ -31,15 +31,15 @@
 .value {
   font-size: tokens.$font-size-display;
   font-weight: tokens.$font-weight-display;
-  color: tokens.$color-ink;
+  color: var(--color-ink);
   line-height: 1.1;
   text-align: start;
 }
 
 // --- Error variant ---
 .error {
-  background: rgba(tokens.$color-danger, 0.06);
-  border-color: rgba(tokens.$color-danger, 0.25);
+  background: rgba(var(--color-danger), 0.06);
+  border-color: rgba(var(--color-danger), 0.25);
 }
 
 .errorBody {
@@ -50,14 +50,14 @@
 
 .errorIcon {
   font-size: tokens.$font-size-body;
-  color: tokens.$color-danger;
+  color: var(--color-danger);
   line-height: 1;
 }
 
 .errorText {
   font-size: tokens.$font-size-body;
   font-weight: tokens.$font-weight-label;
-  color: tokens.$color-danger;
+  color: var(--color-danger);
 }
 
 .retry {
@@ -66,7 +66,7 @@
   font-family: inherit;
   font-size: tokens.$font-size-body;
   font-weight: tokens.$font-weight-label;
-  color: tokens.$color-primary;
+  color: var(--color-primary);
   cursor: pointer;
   padding: 0;
   text-decoration: underline;

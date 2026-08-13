@@ -113,5 +113,9 @@ export const en = {
     sortBy: 'Sort by {column}',
     selectMember: 'Select {name}',
     openDetails: 'Open details for {name}',
+    darkMode: 'Dark mode',
+    lightMode: 'Light mode',
+    switchToDark: 'Switch to dark mode',
+    switchToLight: 'Switch to light mode',
   },
 }

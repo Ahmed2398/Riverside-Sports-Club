@@ -11,7 +11,7 @@
 
 .rangeLabel {
   font-size: tokens.$font-size-small;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   text-align: start;
 }
 
@@ -28,17 +28,17 @@
   min-width: tokens.$min-tap-target;
   height: tokens.$min-tap-target;
   padding-inline: tokens.$space-2;
-  border: 1px solid tokens.$color-line;
+  border: 1px solid var(--color-line);
   border-radius: tokens.$radius-sm;
   background: transparent;
   font-family: inherit;
   font-size: tokens.$font-size-small;
-  color: tokens.$color-ink;
+  color: var(--color-ink);
   cursor: pointer;
 
   &:hover:not(:disabled) {
-    background: tokens.$color-primary-wash;
-    color: tokens.$color-primary;
+    background: var(--color-primary-wash);
+    color: var(--color-primary);
   }
 
   &:focus-visible {
@@ -52,13 +52,13 @@
 }
 
 .active {
-  background: tokens.$color-primary;
-  color: tokens.$color-white;
-  border-color: tokens.$color-primary;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  border-color: var(--color-primary);
 
   &:hover:not(:disabled) {
-    background: tokens.$color-primary-deep;
-    color: tokens.$color-white;
+    background: var(--color-primary-deep);
+    color: var(--color-surface);
   }
 }
 
@@ -66,7 +66,7 @@
   display: flex;
   align-items: center;
   padding-inline: tokens.$space-1;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   font-size: tokens.$font-size-small;
 }
 

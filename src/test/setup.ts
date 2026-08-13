@@ -15,6 +15,12 @@ vi.mock('../shared/i18n/useTranslation', () => ({
   }),
 }))
 
+// Mock ThemeProvider and useTheme for tests
+vi.mock('../shared/contexts/ThemeContext', () => ({
+  ThemeProvider: ({ children }: { children: React.ReactNode }) => children,
+  useTheme: () => ({ theme: 'light', toggleTheme: vi.fn(), setTheme: vi.fn() }),
+}))
+
 // Provide a working localStorage mock for jsdom
 const localStorageMock = (() => {
   let store: Record<string, string> = {}

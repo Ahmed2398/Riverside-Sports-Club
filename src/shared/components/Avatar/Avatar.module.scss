@@ -2,8 +2,8 @@
 
 .avatar {
   border-radius: 50%;
-  background: tokens.$color-primary-wash;
-  color: tokens.$color-primary;
+  background: var(--color-primary-wash);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;

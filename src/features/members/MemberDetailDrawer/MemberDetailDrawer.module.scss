@@ -17,7 +17,7 @@
   position: relative;
   width: min(600px, 100%);
   max-height: 90vh;
-  background: tokens.$color-white;
+  background: var(--color-surface);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   border-radius: tokens.$radius-md;
   z-index: 201;
@@ -54,13 +54,13 @@
 .memberName {
   font-size: 22px;
   font-weight: 650;
-  color: tokens.$color-ink;
+  color: var(--color-ink);
   margin: 0;
 }
 
 .memberNumber {
   font-size: tokens.$font-size-small;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
 }
 
 .badges {
@@ -77,7 +77,7 @@
   background: transparent;
   font-size: 20px;
   line-height: 1;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   cursor: pointer;
   padding: 0;
   min-width: tokens.$min-tap-target;
@@ -85,7 +85,7 @@
   transition: color 0.15s ease;
 
   &:hover {
-    color: tokens.$color-ink;
+    color: var(--color-ink);
   }
 
   &:focus-visible {
@@ -128,7 +128,7 @@
 .sectionTitle {
   font-size: tokens.$font-size-label;
   font-weight: tokens.$font-weight-label;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin: 0;
@@ -139,15 +139,15 @@
   padding-block: tokens.$space-1;
   font-size: tokens.$font-size-small;
   font-weight: tokens.$font-weight-label;
-  color: tokens.$color-primary;
+  color: var(--color-primary);
   background: transparent;
-  border: 1px solid tokens.$color-primary;
+  border: 1px solid var(--color-primary);
   border-radius: tokens.$radius-sm;
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease;
 
   &:hover {
-    background: tokens.$color-primary-wash;
+    background: var(--color-primary-wash);
   }
 
   &:focus-visible {
@@ -155,16 +155,16 @@
   }
 
   &[aria-pressed="true"] {
-    background: tokens.$color-primary;
-    color: tokens.$color-white;
+    background: var(--color-primary);
+    color: var(--color-surface);
   }
 }
 
 .sessionsBox {
   padding: tokens.$space-4;
-  background: tokens.$color-primary-wash;
+  background: var(--color-primary-wash);
   border-radius: tokens.$radius-md;
-  border: 1px solid tokens.$color-line;
+  border: 1px solid var(--color-line);
   display: flex;
   flex-direction: column;
   gap: tokens.$space-3;
@@ -173,7 +173,7 @@
     margin: 0;
     font-size: tokens.$font-size-label;
     font-weight: tokens.$font-weight-label;
-    color: tokens.$color-ink-muted;
+    color: var(--color-ink-muted);
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
@@ -195,14 +195,14 @@
 .fieldLabel {
   font-size: tokens.$font-size-label;
   font-weight: tokens.$font-weight-label;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .fieldValue {
   font-size: tokens.$font-size-body;
-  color: tokens.$color-ink;
+  color: var(--color-ink);
   word-break: break-word;
   line-height: tokens.$line-height-body;
 }
@@ -228,30 +228,30 @@
   align-items: center;
   gap: tokens.$space-3;
   padding: tokens.$space-3;
-  background: tokens.$color-primary-wash;
+  background: var(--color-primary-wash);
   border-radius: tokens.$radius-md;
 }
 
 .sessionDate {
   font-size: tokens.$font-size-small;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   min-width: 80px;
 }
 
 .sessionClass {
   flex: 1;
   font-size: tokens.$font-size-body;
-  color: tokens.$color-ink;
+  color: var(--color-ink);
 }
 
 .sessionDuration {
   font-size: tokens.$font-size-small;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
 }
 
 .empty {
   font-size: tokens.$font-size-body;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   text-align: center;
   padding: tokens.$space-4;
 }

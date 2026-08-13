@@ -11,15 +11,15 @@
 
 // Accessible focus ring for interactive elements
 @mixin focus-ring {
-  outline: 2px solid tokens.$color-primary;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 // Soft focus ring using box-shadow (for inputs/selects)
 @mixin focus-ring-soft {
-  border-color: tokens.$color-primary;
+  border-color: var(--color-primary);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(tokens.$color-primary, 0.15);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary), 0.15);
 }
 
 // Visually hide content but keep it accessible to screen readers

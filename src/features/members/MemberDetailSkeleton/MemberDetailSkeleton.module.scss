@@ -12,9 +12,9 @@
 @mixin skeleton {
   background: linear-gradient(
     90deg,
-    tokens.$color-line 0%,
-    rgba(tokens.$color-line, 0.6) 50%,
-    tokens.$color-line 100%
+    var(--color-line) 0%,
+    rgba(var(--color-line), 0.6) 50%,
+    var(--color-line) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
@@ -103,9 +103,9 @@
 
 .sessionsBox {
   padding: tokens.$space-4;
-  background: tokens.$color-primary-wash;
+  background: var(--color-primary-wash);
   border-radius: tokens.$radius-md;
-  border: 1px solid tokens.$color-line;
+  border: 1px solid var(--color-line);
   display: flex;
   flex-direction: column;
   gap: tokens.$space-3;

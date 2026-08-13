@@ -28,7 +28,7 @@
 .selectLabel {
   font-size: tokens.$font-size-label;
   font-weight: tokens.$font-weight-label;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-align: start;
@@ -42,9 +42,9 @@
   padding-inline-end: tokens.$space-4;
   font-family: inherit;
   font-size: tokens.$font-size-body;
-  color: tokens.$color-ink;
-  background: tokens.$color-white;
-  border: 1px solid tokens.$color-line;
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
   border-radius: tokens.$radius-md;
   min-height: tokens.$min-tap-target;
   cursor: pointer;
@@ -54,7 +54,7 @@
   background-position: right tokens.$space-3 center;
 
   &:hover {
-    border-color: tokens.$color-ink-muted;
+    border-color: var(--color-ink-muted);
   }
 
   &:focus,

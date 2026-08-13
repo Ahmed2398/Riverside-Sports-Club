@@ -113,5 +113,9 @@ export const ar = {
     sortBy: 'ترتيب حسب {column}',
     selectMember: 'اختيار {name}',
     openDetails: 'فتح تفاصيل {name}',
+    darkMode: 'الوضع الداكن',
+    lightMode: 'الوضع الفاتح',
+    switchToDark: 'التبديل إلى الوضع الداكن',
+    switchToLight: 'التبديل إلى الوضع الفاتح',
   },
 }

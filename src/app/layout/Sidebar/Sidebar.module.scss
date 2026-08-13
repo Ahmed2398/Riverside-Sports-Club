@@ -4,8 +4,8 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  background: tokens.$color-white;
-  border-inline-end: 1px solid tokens.$color-line;
+  background: var(--color-surface);
+  border-inline-end: 1px solid var(--color-line);
   width: 240px;
   height: 100vh;
   position: fixed;
@@ -31,13 +31,13 @@
   align-items: center;
   justify-content: center;
   padding-block: tokens.$space-4;
-  border-block-end: 1px solid tokens.$color-line;
+  border-block-end: 1px solid var(--color-line);
 }
 
 .brandMark {
   font-size: tokens.$font-size-h2;
   font-weight: tokens.$font-weight-h2;
-  color: tokens.$color-primary;
+  color: var(--color-primary);
   letter-spacing: 0.05em;
 }
 
@@ -57,7 +57,7 @@
   background: transparent;
   font-family: inherit;
   font-size: tokens.$font-size-body;
-  color: tokens.$color-ink-muted;
+  color: var(--color-ink-muted);
   border-radius: tokens.$radius-sm;
   cursor: pointer;
   text-align: start;
@@ -66,8 +66,8 @@
   text-decoration: none;
 
   &:hover {
-    background: tokens.$color-primary-wash;
-    color: tokens.$color-primary;
+    background: var(--color-primary-wash);
+    color: var(--color-primary);
   }
 
   &:focus-visible {
@@ -89,8 +89,8 @@
 }
 
 .active {
-  background: tokens.$color-primary-wash;
-  color: tokens.$color-primary;
+  background: var(--color-primary-wash);
+  color: var(--color-primary);
   font-weight: tokens.$font-weight-label;
 }
 
