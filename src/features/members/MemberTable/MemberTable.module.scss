@@ -122,6 +122,13 @@
   width: 60%;
 }
 
+.emptyState {
+  text-align: center;
+  padding-block: tokens.$space-5;
+  color: tokens.$color-ink-muted;
+  font-size: tokens.$font-size-body;
+}
+
 @keyframes shimmer {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }

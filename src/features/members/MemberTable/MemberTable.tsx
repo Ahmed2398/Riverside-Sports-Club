@@ -65,7 +65,15 @@ export function MemberTable() {
                   <td><div className={`${styles.skeleton} ${styles.skeletonSmall}`} /></td>
                 </tr>
               ))
-            : data.map((m) => (
+            : data.length === 0
+              ? (
+                <tr>
+                  <td colSpan={4} className={styles.emptyState}>
+                    No members found. Try adjusting your search or filters.
+                  </td>
+                </tr>
+              )
+              : data.map((m) => (
                 <tr key={m.id}>
                   <td>
                     <div className={styles.memberCell}>
