@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react'
 
 type Locale = 'en' | 'ar'
 
@@ -21,6 +21,12 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     setLocaleState(newLocale)
     localStorage.setItem(LOCALE_STORAGE_KEY, newLocale)
   }
+
+  // Update document direction when locale changes
+  useEffect(() => {
+    document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr'
+    document.documentElement.lang = locale
+  }, [locale])
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
