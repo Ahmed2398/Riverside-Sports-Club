@@ -1,0 +1,24 @@
+@use '../../../styles/tokens';
+
+.shell {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.content {
+  padding: tokens.$space-4;
+  flex: 1;
+}
+
+@media (min-width: tokens.$bp-lg) {
+  .shell {
+    grid-template-columns: 240px 1fr;
+  }
+}

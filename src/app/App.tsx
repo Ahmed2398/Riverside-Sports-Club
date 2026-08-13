@@ -3,6 +3,8 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import { useAuth } from '../features/auth/hooks'
 import { LoginPage } from '../features/auth/pages/LoginPage'
+import { AppShell } from './layout/AppShell/AppShell'
+import { DashboardPage } from '../features/summary/pages/DashboardPage'
 
 function ProtectedLayout() {
   const { isAuthenticated, status } = useAuth()
@@ -16,9 +18,9 @@ function ProtectedLayout() {
   }
 
   return (
-    <div>
-      <h1>Dashboard — authenticated</h1>
-    </div>
+    <AppShell title="Dashboard">
+      <DashboardPage />
+    </AppShell>
   )
 }
 

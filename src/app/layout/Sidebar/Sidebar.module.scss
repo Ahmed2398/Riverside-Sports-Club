@@ -1,0 +1,93 @@
+@use '../../../styles/tokens';
+@use '../../../styles/mixins';
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: tokens.$color-white;
+  border-inline-end: 1px solid tokens.$color-line;
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: -240px;
+  transition: inset-inline-start 0.2s ease;
+  z-index: 100;
+}
+
+.open {
+  inset-inline-start: 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: tokens.$space-4;
+  border-block-end: 1px solid tokens.$color-line;
+}
+
+.brandMark {
+  font-size: tokens.$font-size-h2;
+  font-weight: tokens.$font-weight-h2;
+  color: tokens.$color-primary;
+  letter-spacing: 0.05em;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: tokens.$space-2;
+  gap: tokens.$space-1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding-inline: tokens.$space-3;
+  padding-block: tokens.$space-2;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-ink-muted;
+  border-radius: tokens.$radius-sm;
+  cursor: pointer;
+  text-align: start;
+  min-height: tokens.$min-tap-target;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: tokens.$color-primary-wash;
+    color: tokens.$color-primary;
+  }
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+.active {
+  background: tokens.$color-primary-wash;
+  color: tokens.$color-primary;
+  font-weight: tokens.$font-weight-label;
+}
+
+@media (min-width: tokens.$bp-lg) {
+  .sidebar {
+    position: sticky;
+    inset-inline-start: 0;
+    transition: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+}

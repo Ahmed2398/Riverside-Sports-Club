@@ -1,0 +1,93 @@
+@use '../../../styles/tokens';
+@use '../../../styles/mixins';
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: tokens.$space-4;
+  padding-block: tokens.$space-3;
+  background: tokens.$color-white;
+  border-block-end: 1px solid tokens.$color-line;
+  min-height: tokens.$min-tap-target;
+  gap: tokens.$space-3;
+}
+
+.start {
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-3;
+  min-width: 0;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: tokens.$min-tap-target;
+  height: tokens.$min-tap-target;
+  border: 1px solid tokens.$color-line;
+  border-radius: tokens.$radius-sm;
+  background: transparent;
+  cursor: pointer;
+  padding: tokens.$space-2;
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+.hamburgerLine {
+  display: block;
+  height: 2px;
+  background: tokens.$color-ink;
+  border-radius: 1px;
+}
+
+.title {
+  font-size: tokens.$font-size-h2;
+  font-weight: tokens.$font-weight-h2;
+  color: tokens.$color-ink;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.end {
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-2;
+  flex-shrink: 0;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: tokens.$space-3;
+  padding-block: tokens.$space-2;
+  border: 1px solid tokens.$color-line;
+  border-radius: tokens.$radius-sm;
+  background: transparent;
+  font-family: inherit;
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+  cursor: pointer;
+  min-height: tokens.$min-tap-target;
+
+  &:hover {
+    background: tokens.$color-primary-wash;
+    color: tokens.$color-primary;
+  }
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+@media (min-width: tokens.$bp-lg) {
+  .hamburger {
+    display: none;
+  }
+}

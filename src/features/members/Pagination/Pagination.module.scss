@@ -1,0 +1,71 @@
+@use '../../../styles/tokens';
+@use '../../../styles/mixins';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: tokens.$space-3;
+  padding-block: tokens.$space-3;
+}
+
+.rangeLabel {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+  text-align: start;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-1;
+}
+
+.pageBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: tokens.$min-tap-target;
+  height: tokens.$min-tap-target;
+  padding-inline: tokens.$space-2;
+  border: 1px solid tokens.$color-line;
+  border-radius: tokens.$radius-sm;
+  background: transparent;
+  font-family: inherit;
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: tokens.$color-primary-wash;
+    color: tokens.$color-primary;
+  }
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.active {
+  background: tokens.$color-primary;
+  color: tokens.$color-white;
+  border-color: tokens.$color-primary;
+
+  &:hover:not(:disabled) {
+    background: tokens.$color-primary-deep;
+    color: tokens.$color-white;
+  }
+}
+
+@media (max-width: 639px) {
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+    gap: tokens.$space-2;
+  }
+}

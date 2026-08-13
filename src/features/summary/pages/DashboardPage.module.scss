@@ -1,0 +1,7 @@
+@use '../../../styles/tokens';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-4;
+}

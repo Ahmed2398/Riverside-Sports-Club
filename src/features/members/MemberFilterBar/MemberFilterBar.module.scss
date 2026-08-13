@@ -1,0 +1,70 @@
+@use '../../../styles/tokens';
+@use '../../../styles/mixins';
+
+.bar {
+  display: flex;
+  align-items: flex-end;
+  gap: tokens.$space-3;
+}
+
+.search {
+  flex: 1;
+  min-width: 0;
+}
+
+.filters {
+  display: flex;
+  gap: tokens.$space-3;
+  flex-shrink: 0;
+}
+
+.selectField {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-1;
+}
+
+.selectLabel {
+  font-size: tokens.$font-size-label;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-ink;
+  text-align: start;
+}
+
+.select {
+  padding-inline: tokens.$space-3;
+  padding-block: tokens.$space-2;
+  font-family: inherit;
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-ink;
+  background: tokens.$color-white;
+  border: 1px solid tokens.$color-line;
+  border-radius: tokens.$radius-md;
+  min-height: tokens.$min-tap-target;
+  cursor: pointer;
+
+  &:focus {
+    border-color: tokens.$color-primary;
+    outline: none;
+  }
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+@media (max-width: 767px) {
+  .bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .selectField {
+    flex: 1;
+  }
+}

@@ -1,0 +1,74 @@
+@use '../../../styles/tokens';
+@use '../../../styles/mixins';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-2;
+  padding: tokens.$space-4;
+  background: tokens.$color-white;
+  border: 1px solid tokens.$color-line;
+  border-radius: tokens.$radius-md;
+}
+
+.label {
+  font-size: tokens.$font-size-label;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-ink-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: start;
+}
+
+.skeleton {
+  height: 28px;
+  width: 60%;
+  background: tokens.$color-line;
+  border-radius: tokens.$radius-sm;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+// --- Error variant ---
+.error {
+  background: rgba(tokens.$color-danger, 0.06);
+  border-color: rgba(tokens.$color-danger, 0.25);
+}
+
+.errorBody {
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-1;
+}
+
+.errorIcon {
+  font-size: tokens.$font-size-body;
+  color: tokens.$color-danger;
+  line-height: 1;
+}
+
+.errorText {
+  font-size: tokens.$font-size-body;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-danger;
+}
+
+.retry {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: tokens.$font-size-body;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-primary;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
