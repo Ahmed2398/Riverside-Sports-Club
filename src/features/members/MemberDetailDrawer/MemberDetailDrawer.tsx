@@ -31,16 +31,40 @@ export function MemberDetailDrawer() {
     <>
       <div className={styles.overlay} onClick={handleClose}>
         <div className={styles.drawer} role="dialog" aria-modal="true" aria-label="Member details" onClick={(e) => e.stopPropagation()}>
-          <div className={styles.header}>
-            <h2 className={styles.title}>Member Detail</h2>
-            <button
-              className={styles.closeBtn}
-              onClick={handleClose}
-              aria-label="Close"
-            >
-              {'\u00D7'}
-            </button>
-          </div>
+          {status === 'succeeded' && member && (
+            <div className={styles.header}>
+              <div className={styles.headerContent}>
+                <Avatar name={member.name.en} size="sm" />
+                <div className={styles.headerInfo}>
+                  <h2 className={styles.memberName}>{member.name.en}</h2>
+                  <span className={styles.memberNumber}>{member.memberNumber}</span>
+                  <div className={styles.badges}>
+                    <TierBadge tier={member.tier} />
+                    <StatusBadge status={member.status} />
+                  </div>
+                </div>
+              </div>
+              <button
+                className={styles.closeBtn}
+                onClick={handleClose}
+                aria-label="Close"
+              >
+                {'\u00D7'}
+              </button>
+            </div>
+          )}
+
+          {status === 'loading' && (
+            <div className={styles.header}>
+              <button
+                className={styles.closeBtn}
+                onClick={handleClose}
+                aria-label="Close"
+              >
+                {'\u00D7'}
+              </button>
+            </div>
+          )}
 
         <div className={styles.content}>
           {status === 'loading' && (
@@ -51,17 +75,6 @@ export function MemberDetailDrawer() {
 
           {status === 'succeeded' && member && (
             <>
-              <div className={styles.profile}>
-                <Avatar name={member.name.en} size="md" />
-                <div className={styles.profileInfo}>
-                  <h3 className={styles.memberName}>{member.name.en}</h3>
-                  <span className={styles.memberNumber}>{member.memberNumber}</span>
-                </div>
-                <div className={styles.badges}>
-                  <TierBadge tier={member.tier} />
-                  <StatusBadge status={member.status} />
-                </div>
-              </div>
 
               <div className={styles.section}>
                 <h4 className={styles.sectionTitle}>Sessions This Month</h4>

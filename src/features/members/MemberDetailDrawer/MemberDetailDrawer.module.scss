@@ -28,18 +28,46 @@
 
 .header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: tokens.$space-4;
   border-block-end: 1px solid tokens.$color-line;
   flex-shrink: 0;
+  gap: tokens.$space-3;
 }
 
-.title {
-  font-size: tokens.$font-size-h2;
-  font-weight: tokens.$font-weight-h2;
+.headerContent {
+  display: flex;
+  align-items: flex-start;
+  gap: tokens.$space-3;
+  flex: 1;
+  min-width: 0;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-1;
+  flex: 1;
+  min-width: 0;
+}
+
+.memberName {
+  font-size: 22px;
+  font-weight: 650;
   color: tokens.$color-ink;
   margin: 0;
+}
+
+.memberNumber {
+  font-size: tokens.$font-size-small;
+  color: tokens.$color-ink-muted;
+}
+
+.badges {
+  display: flex;
+  gap: tokens.$space-2;
+  margin-block-start: tokens.$space-1;
 }
 
 .closeBtn {
@@ -83,42 +111,6 @@
   justify-content: center;
   gap: tokens.$space-3;
   padding: tokens.$space-5;
-}
-
-.profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: tokens.$space-3;
-  padding-block: tokens.$space-5;
-  padding-inline: tokens.$space-4;
-  border-block-end: 1px solid tokens.$color-line;
-}
-
-.profileInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: tokens.$space-1;
-}
-
-.memberName {
-  font-size: 22px;
-  font-weight: 650;
-  color: tokens.$color-ink;
-  margin: 0;
-  text-align: center;
-}
-
-.memberNumber {
-  font-size: tokens.$font-size-small;
-  color: tokens.$color-ink-muted;
-  text-align: center;
-}
-
-.badges {
-  display: flex;
-  gap: tokens.$space-2;
 }
 
 .section {
