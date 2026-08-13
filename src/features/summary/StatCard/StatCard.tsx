@@ -2,6 +2,7 @@ import styles from './StatCard.module.scss'
 
 interface StatCardProps {
   label: string
+  value?: string | number
   loading?: boolean
   variant?: 'default' | 'error'
   onRetry?: () => void
@@ -9,6 +10,7 @@ interface StatCardProps {
 
 export function StatCard({
   label,
+  value,
   loading = false,
   variant = 'default',
   onRetry,
@@ -37,10 +39,10 @@ export function StatCard({
   return (
     <div className={styles.card}>
       <span className={styles.label}>{label}</span>
-      {loading ? (
+      {loading || value === undefined ? (
         <div className={styles.skeleton} />
       ) : (
-        <div className={styles.skeleton} />
+        <span className={styles.value}>{value}</span>
       )}
     </div>
   )
