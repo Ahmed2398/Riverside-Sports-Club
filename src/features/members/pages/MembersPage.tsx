@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { useDebouncedValue } from '../../../shared/hooks'
+import { useTranslation } from '../../../shared/i18n'
 import { fetchMemberList } from '../membersSlice'
 import { MemberFilterBar } from '../MemberFilterBar/MemberFilterBar'
 import { MemberTable } from '../MemberTable/MemberTable'
@@ -12,6 +13,7 @@ const SEARCH_DEBOUNCE_MS = 300
 
 export function MembersPage() {
   const dispatch = useAppDispatch()
+  const { t } = useTranslation()
   const memberParams = useAppSelector((s) => s.members.params)
   const debouncedSearch = useDebouncedValue(memberParams.search, SEARCH_DEBOUNCE_MS)
 
@@ -29,7 +31,7 @@ export function MembersPage() {
     <>
       <div className={styles.page}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Members</h1>
+          <h1 className={styles.title}>{t('members.title')}</h1>
         </div>
         <MemberFilterBar />
         <MemberTable />
