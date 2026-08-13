@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styles from './Sidebar.module.scss'
 
 interface SidebarProps {
@@ -6,10 +7,10 @@ interface SidebarProps {
 }
 
 const NAV_ITEMS = [
-  { label: 'Dashboard', active: true },
-  { label: 'Members', active: false },
-  { label: 'Classes', active: false },
-  { label: 'Settings', active: false },
+  { label: 'Dashboard', path: '/' },
+  { label: 'Members', path: '/members' },
+  { label: 'Classes', path: '/classes' },
+  { label: 'Settings', path: '/settings' },
 ]
 
 export function Sidebar({ open, onClose }: SidebarProps) {
@@ -25,13 +26,16 @@ export function Sidebar({ open, onClose }: SidebarProps) {
         </div>
         <nav className={styles.nav}>
           {NAV_ITEMS.map((item) => (
-            <button
-              key={item.label}
-              className={`${styles.navItem} ${item.active ? styles.active : ''}`}
-              aria-current={item.active ? 'page' : undefined}
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                `${styles.navItem} ${isActive ? styles.active : ''}`
+              }
+              onClick={onClose}
             >
               {item.label}
-            </button>
+            </NavLink>
           ))}
         </nav>
       </aside>

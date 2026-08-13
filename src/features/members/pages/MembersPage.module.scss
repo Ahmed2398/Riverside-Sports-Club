@@ -1,0 +1,25 @@
+@use '../../../styles/tokens';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-4;
+  padding: tokens.$space-4;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: tokens.$space-3;
+}
+
+.title {
+  font-size: tokens.$font-size-h1;
+  font-weight: tokens.$font-weight-h1;
+  color: tokens.$color-ink;
+  margin: 0;
+}
