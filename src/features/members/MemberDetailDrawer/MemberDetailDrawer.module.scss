@@ -135,6 +135,13 @@
   gap: tokens.$space-2;
 }
 
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: tokens.$space-2;
+}
+
 .sectionTitle {
   font-size: tokens.$font-size-label;
   font-weight: tokens.$font-weight-label;
@@ -142,6 +149,32 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin: 0;
+}
+
+.toggleBtn {
+  padding-inline: tokens.$space-3;
+  padding-block: tokens.$space-1;
+  font-size: tokens.$font-size-small;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-primary;
+  background: transparent;
+  border: 1px solid tokens.$color-primary;
+  border-radius: tokens.$radius-sm;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: tokens.$color-primary-wash;
+  }
+
+  &:focus-visible {
+    @include mixins.focus-ring;
+  }
+
+  &[aria-pressed="true"] {
+    background: tokens.$color-primary;
+    color: tokens.$color-white;
+  }
 }
 
 .sessionsBox {

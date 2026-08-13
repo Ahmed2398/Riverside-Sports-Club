@@ -27,6 +27,11 @@
     rgba(tokens.$color-ink-muted, 0.08) 8px,
     rgba(tokens.$color-ink-muted, 0.08) 16px
   );
+  transition: background-image 0.2s ease;
+}
+
+.revealed {
+  background-image: none;
 }
 
 .value {

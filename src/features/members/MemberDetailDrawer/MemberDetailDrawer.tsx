@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { closeMemberDetail, fetchMemberDetailData } from '../memberDetailSlice'
 import {
@@ -14,6 +14,7 @@ import styles from './MemberDetailDrawer.module.scss'
 export function MemberDetailDrawer() {
   const dispatch = useAppDispatch()
   const { isOpen, member, sessions, status, selectedMemberId } = useAppSelector((s) => s.memberDetail)
+  const [showConfidential, setShowConfidential] = useState(false)
 
   useEffect(() => {
     if (isOpen && selectedMemberId) {
@@ -95,16 +96,27 @@ export function MemberDetailDrawer() {
               </div>
 
               <div className={styles.section}>
-                <h4 className={styles.sectionTitle}>Confidential</h4>
+                <div className={styles.sectionHeader}>
+                  <h4 className={styles.sectionTitle}>Confidential</h4>
+                  <button
+                    className={styles.toggleBtn}
+                    onClick={() => setShowConfidential(!showConfidential)}
+                    aria-pressed={showConfidential}
+                    aria-label={showConfidential ? 'Hide confidential details' : 'Show confidential details'}
+                  >
+                    {showConfidential ? 'Hide' : 'Show'} confidential details
+                  </button>
+                </div>
                 <div className={styles.confidentialGrid}>
-                  <ConfidentialField label="Phone" value={member.phone} />
+                  <ConfidentialField label="Phone" value={member.phone} revealed={showConfidential} />
                   <ConfidentialField
                     label="Emergency Contact"
                     value={`${member.emergencyContact.name} · ${member.emergencyContact.phone}`}
+                    revealed={showConfidential}
                   />
                 </div>
                 <div className={styles.confidentialFull}>
-                  <ConfidentialField label="Medical Notes" value={member.medicalNotes} />
+                  <ConfidentialField label="Medical Notes" value={member.medicalNotes} revealed={showConfidential} />
                 </div>
               </div>
 
