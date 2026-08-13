@@ -6,10 +6,10 @@ import {
   TierBadge,
   ProgressBar,
   ConfidentialField,
-  Spinner,
   Button,
   Avatar,
 } from '../../../shared/components'
+import { MemberDetailSkeleton } from '../MemberDetailSkeleton/MemberDetailSkeleton'
 import styles from './MemberDetailDrawer.module.scss'
 
 export function MemberDetailDrawer() {
@@ -30,7 +30,14 @@ export function MemberDetailDrawer() {
   return (
     <>
       <div className={styles.overlay} onClick={handleClose}>
-        <div className={styles.drawer} role="dialog" aria-modal="true" aria-label="Member details" onClick={(e) => e.stopPropagation()}>
+        <div 
+          className={styles.drawer} 
+          role="dialog" 
+          aria-modal="true" 
+          aria-label="Member details" 
+          onClick={(e) => e.stopPropagation()}
+          key={selectedMemberId} // Reset component state when member changes
+        >
           {status === 'succeeded' && member && (
             <div className={styles.header}>
               <div className={styles.headerContent}>
@@ -67,18 +74,14 @@ export function MemberDetailDrawer() {
           )}
 
         <div className={styles.content}>
-          {status === 'loading' && (
-            <div className={styles.loading}>
-              <Spinner size="md" />
-            </div>
-          )}
+          {status === 'loading' && <MemberDetailSkeleton />}
 
           {status === 'succeeded' && member && (
             <>
 
               <div className={styles.section}>
-                <h4 className={styles.sectionTitle}>Sessions This Month</h4>
                 <div className={styles.sessionsBox}>
+                  <h4 className={styles.sectionTitle}>Sessions This Month</h4>
                   <ProgressBar
                     current={member.sessionsThisMonth}
                     goal={member.monthlyGoal}

@@ -3,7 +3,7 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: tokens.$space-1;
+  gap: tokens.$space-2;
 }
 
 .label {
@@ -20,18 +20,34 @@
   background: tokens.$color-white;
   border: 1px solid tokens.$color-line;
   border-radius: tokens.$radius-md;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 8px,
-    rgba(tokens.$color-ink-muted, 0.08) 8px,
-    rgba(tokens.$color-ink-muted, 0.08) 16px
-  );
-  transition: background-image 0.2s ease;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  // Opaque overlay with hatched pattern that actually obscures the text
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.92);
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(tokens.$color-ink-muted, 0.12) 8px,
+      rgba(tokens.$color-ink-muted, 0.12) 16px
+    );
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
 }
 
 .revealed {
-  background-image: none;
+  &::before {
+    opacity: 0;
+  }
 }
 
 .value {
@@ -40,4 +56,5 @@
   line-height: tokens.$line-height-body;
   text-align: start;
   display: block;
+  width: 100%;
 }

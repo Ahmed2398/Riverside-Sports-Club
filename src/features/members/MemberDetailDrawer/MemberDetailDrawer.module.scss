@@ -31,7 +31,6 @@
   align-items: flex-start;
   justify-content: space-between;
   padding: tokens.$space-4;
-  border-block-end: 1px solid tokens.$color-line;
   flex-shrink: 0;
   gap: tokens.$space-3;
 }
@@ -166,19 +165,31 @@
   background: tokens.$color-primary-wash;
   border-radius: tokens.$radius-md;
   border: 1px solid tokens.$color-line;
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-3;
+
+  .sectionTitle {
+    margin: 0;
+    font-size: tokens.$font-size-label;
+    font-weight: tokens.$font-weight-label;
+    color: tokens.$color-ink-muted;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
 }
 
 .membershipGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: tokens.$space-4;
-  row-gap: tokens.$space-3;
+  row-gap: tokens.$space-4;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: tokens.$space-1;
+  gap: tokens.$space-2;
 }
 
 .fieldLabel {
@@ -193,16 +204,17 @@
   font-size: tokens.$font-size-body;
   color: tokens.$color-ink;
   word-break: break-word;
+  line-height: tokens.$line-height-body;
 }
 
 .confidentialGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: tokens.$space-3;
+  gap: tokens.$space-4;
 }
 
 .confidentialFull {
-  margin-block-start: tokens.$space-3;
+  margin-block-start: tokens.$space-4;
 }
 
 .sessionList {
