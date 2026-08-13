@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { useAppSelector } from '../../hooks'
 import styles from './Topbar.module.scss'
 
 interface TopbarProps {
@@ -6,6 +8,16 @@ interface TopbarProps {
 }
 
 export function Topbar({ title, onMenuClick }: TopbarProps) {
+  const user = useAppSelector((s) => s.auth.user)
+  const [locale, setLocale] = useState<'en' | 'ar'>('en')
+
+  const handleLanguageToggle = () => {
+    setLocale((prev) => (prev === 'en' ? 'ar' : 'en'))
+    // TODO: Update global locale context/state when implemented
+  }
+
+  const userName = user?.name[locale] || user?.name.en || 'User'
+
   return (
     <header className={styles.topbar}>
       <div className={styles.start}>
@@ -21,8 +33,25 @@ export function Topbar({ title, onMenuClick }: TopbarProps) {
         <h1 className={styles.title}>{title}</h1>
       </div>
       <div className={styles.end}>
-        <button className={styles.control} type="button">EN</button>
-        <button className={styles.control} type="button">User</button>
+        <button 
+          className={styles.control} 
+          type="button"
+          onClick={handleLanguageToggle}
+          aria-label={`Switch to ${locale === 'en' ? 'Arabic' : 'English'}`}
+        >
+          {locale === 'en' ? 'EN' : 'AR'}
+        </button>
+        <div className={styles.userInfo}>
+          <div className={styles.avatar}>
+            {userName.charAt(0).toUpperCase()}
+          </div>
+          <div className={styles.userDetails}>
+            <span className={styles.userName}>{userName}</span>
+            {user?.email && (
+              <span className={styles.userEmail}>{user.email}</span>
+            )}
+          </div>
+        </div>
       </div>
     </header>
   )

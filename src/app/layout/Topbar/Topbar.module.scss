@@ -72,18 +72,74 @@
   background: transparent;
   font-family: inherit;
   font-size: tokens.$font-size-small;
+  font-weight: tokens.$font-weight-label;
   color: tokens.$color-ink-muted;
   cursor: pointer;
   min-height: tokens.$min-tap-target;
+  transition: background-color 0.15s ease, color 0.15s ease;
 
   &:hover {
     background: tokens.$color-primary-wash;
     color: tokens.$color-primary;
+    border-color: tokens.$color-primary;
   }
 
   &:focus-visible {
     @include mixins.focus-ring;
   }
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-2;
+  padding-inline: tokens.$space-2;
+  padding-block: tokens.$space-1;
+  border: 1px solid tokens.$color-line;
+  border-radius: tokens.$radius-md;
+  background: tokens.$color-white;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: tokens.$color-primary-wash;
+  color: tokens.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: tokens.$font-size-body;
+  font-weight: 650;
+  flex-shrink: 0;
+}
+
+.userDetails {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+
+  @media (min-width: tokens.$bp-md) {
+    display: flex;
+  }
+}
+
+.userName {
+  font-size: tokens.$font-size-small;
+  font-weight: tokens.$font-weight-label;
+  color: tokens.$color-ink;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userEmail {
+  font-size: 11px;
+  color: tokens.$color-ink-muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (min-width: tokens.$bp-lg) {
