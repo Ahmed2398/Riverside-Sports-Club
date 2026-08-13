@@ -27,18 +27,18 @@ export function MemberDetailDrawer() {
 
   return (
     <>
-      <div className={styles.overlay} onClick={handleClose} aria-hidden="true" />
-      <div className={styles.drawer} role="dialog" aria-modal="true" aria-label="Member details">
-        <div className={styles.header}>
-          <h2 className={styles.title}>Member Detail</h2>
-          <button
-            className={styles.closeBtn}
-            onClick={handleClose}
-            aria-label="Close"
-          >
-            {'\u00D7'}
-          </button>
-        </div>
+      <div className={styles.overlay} onClick={handleClose}>
+        <div className={styles.drawer} role="dialog" aria-modal="true" aria-label="Member details" onClick={(e) => e.stopPropagation()}>
+          <div className={styles.header}>
+            <h2 className={styles.title}>Member Detail</h2>
+            <button
+              className={styles.closeBtn}
+              onClick={handleClose}
+              aria-label="Close"
+            >
+              {'\u00D7'}
+            </button>
+          </div>
 
         <div className={styles.content}>
           {status === 'loading' && (
@@ -137,6 +137,7 @@ export function MemberDetailDrawer() {
               </Button>
             </div>
           )}
+        </div>
         </div>
       </div>
     </>
