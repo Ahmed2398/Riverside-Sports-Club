@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { useLocale } from '../../../shared/contexts/LocaleContext'
+import { useTranslation } from '../../../shared/i18n'
 import { closeMemberDetail, fetchMemberDetailData } from '../memberDetailSlice'
 import {
   StatusBadge,
@@ -16,6 +17,7 @@ import styles from './MemberDetailDrawer.module.scss'
 export function MemberDetailDrawer() {
   const dispatch = useAppDispatch()
   const { locale } = useLocale()
+  const { t } = useTranslation()
   const { isOpen, member, sessions, status, selectedMemberId } = useAppSelector((s) => s.memberDetail)
   const [showConfidential, setShowConfidential] = useState(false)
 
@@ -83,30 +85,30 @@ export function MemberDetailDrawer() {
 
               <div className={styles.section}>
                 <div className={styles.sessionsBox}>
-                  <h4 className={styles.sectionTitle}>Sessions This Month</h4>
+                  <h4 className={styles.sectionTitle}>{t('members.sessionsThisMonthTitle')}</h4>
                   <ProgressBar
                     current={member.sessionsThisMonth}
                     goal={member.monthlyGoal}
-                    label="Monthly Goal"
+                    label={t('members.monthlyGoal')}
                   />
                 </div>
               </div>
 
               <div className={styles.section}>
-                <h4 className={styles.sectionTitle}>Membership</h4>
+                <h4 className={styles.sectionTitle}>{t('members.membershipInfo')}</h4>
                 <div className={styles.membershipGrid}>
                   <div className={styles.field}>
-                    <span className={styles.fieldLabel}>Joined</span>
+                    <span className={styles.fieldLabel}>{t('members.joinedDate')}</span>
                     <span className={styles.fieldValue}>
                       {new Date(member.joinedAt).toLocaleDateString()}
                     </span>
                   </div>
                   <div className={styles.field}>
-                    <span className={styles.fieldLabel}>Email</span>
+                    <span className={styles.fieldLabel}>{t('members.emailAddress')}</span>
                     <span className={styles.fieldValue}>{member.email}</span>
                   </div>
                   <div className={styles.field}>
-                    <span className={styles.fieldLabel}>Total Sessions</span>
+                    <span className={styles.fieldLabel}>{t('members.totalSessions')}</span>
                     <span className={styles.fieldValue}>{member.totalSessions}</span>
                   </div>
                 </div>
@@ -114,33 +116,33 @@ export function MemberDetailDrawer() {
 
               <div className={styles.section}>
                 <div className={styles.sectionHeader}>
-                  <h4 className={styles.sectionTitle}>Confidential</h4>
+                  <h4 className={styles.sectionTitle}>{t('members.confidential')}</h4>
                   <button
                     className={styles.toggleBtn}
                     onClick={() => setShowConfidential(!showConfidential)}
                     aria-pressed={showConfidential}
-                    aria-label={showConfidential ? 'Hide confidential details' : 'Show confidential details'}
+                    aria-label={showConfidential ? t('members.hideConfidential') : t('members.showConfidential')}
                   >
-                    {showConfidential ? 'Hide' : 'Show'} confidential details
+                    {showConfidential ? t('members.hideConfidential') : t('members.showConfidential')}
                   </button>
                 </div>
                 <div className={styles.confidentialGrid}>
-                  <ConfidentialField label="Phone" value={member.phone} revealed={showConfidential} />
+                  <ConfidentialField label={t('members.phone')} value={member.phone} revealed={showConfidential} />
                   <ConfidentialField
-                    label="Emergency Contact"
+label={t('members.emergencyContact')}
                     value={`${member.emergencyContact.name} · ${member.emergencyContact.phone}`}
                     revealed={showConfidential}
                   />
                 </div>
                 <div className={styles.confidentialFull}>
-                  <ConfidentialField label="Medical Notes" value={member.medicalNotes} revealed={showConfidential} />
+                  <ConfidentialField label={t('members.medicalNotes')} value={member.medicalNotes} revealed={showConfidential} />
                 </div>
               </div>
 
               <div className={styles.section}>
-                <h4 className={styles.sectionTitle}>Recent Sessions</h4>
+                <h4 className={styles.sectionTitle}>{t('members.recentSessions')}</h4>
                 {sessions.length === 0 ? (
-                  <p className={styles.empty}>No sessions yet</p>
+                  <p className={styles.empty}>{t('members.noSessions')}</p>
                 ) : (
                   <div className={styles.sessionList}>
                     {sessions.map((s) => (
@@ -149,7 +151,7 @@ export function MemberDetailDrawer() {
                           {new Date(s.date).toLocaleDateString()}
                         </span>
                         <span className={styles.sessionClass}>{s.className[locale]}</span>
-                        <span className={styles.sessionDuration}>{s.durationMinutes} min</span>
+                        <span className={styles.sessionDuration}>{s.durationMinutes} {t('members.duration')}</span>
                       </div>
                     ))}
                   </div>

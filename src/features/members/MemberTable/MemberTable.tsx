@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { useLocale } from '../../../shared/contexts/LocaleContext'
+import { useTranslation } from '../../../shared/i18n'
 import { setSort, resetFilters } from '../membersSlice'
 import { openMemberDetail } from '../memberDetailSlice'
 import { StatusBadge, TierBadge, Button } from '../../../shared/components'
@@ -13,6 +14,7 @@ type SortColumn = NonNullable<MemberListParams['sort']>
 export function MemberTable() {
   const dispatch = useAppDispatch()
   const { locale } = useLocale()
+  const { t } = useTranslation()
   const { data, status, params } = useAppSelector((s) => s.members)
   const isLoading = status === 'loading' || status === 'idle'
 
@@ -40,19 +42,19 @@ export function MemberTable() {
                 className={styles.sortBtn}
                 onClick={() => dispatch(setSort('name'))}
               >
-                Member
+                {t('members.name')}
                 {renderSortIcon('name')}
               </button>
             </th>
-            <th className={styles.colTier}>Tier</th>
-            <th className={styles.colStatus}>Status</th>
+            <th className={styles.colTier}>{t('members.tier')}</th>
+            <th className={styles.colStatus}>{t('members.status')}</th>
             <th className={styles.colSessions}>
               <button
                 type="button"
                 className={styles.sortBtn}
                 onClick={() => dispatch(setSort('sessionsThisMonth'))}
               >
-                Sessions
+                {t('members.sessionsThisMonth')}
                 {renderSortIcon('sessionsThisMonth')}
               </button>
             </th>
@@ -74,10 +76,10 @@ export function MemberTable() {
                   <td colSpan={4} className={styles.emptyState}>
                     <div className={styles.emptyContent}>
                       <span className={styles.emptyIcon} aria-hidden="true">{'\u{1F50D}'}</span>
-                      <p className={styles.emptyText}>No members found</p>
-                      <p className={styles.emptyHint}>Try adjusting your search or filters.</p>
+                      <p className={styles.emptyText}>{t('members.noMembers')}</p>
+                      <p className={styles.emptyHint}>{t('members.noMembersHint')}</p>
                       <Button variant="secondary" size="sm" onClick={() => dispatch(resetFilters())}>
-                        Reset filters
+                        {t('members.resetFilters')}
                       </Button>
                     </div>
                   </td>

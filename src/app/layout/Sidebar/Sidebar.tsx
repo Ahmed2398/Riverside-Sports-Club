@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { useTranslation } from '../../../shared/i18n'
 import styles from './Sidebar.module.scss'
 
 interface SidebarProps {
@@ -8,7 +9,7 @@ interface SidebarProps {
 
 const NAV_ITEMS = [
   { 
-    label: 'Dashboard', 
+    key: 'dashboard',
     path: '/',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -20,7 +21,7 @@ const NAV_ITEMS = [
     )
   },
   { 
-    label: 'Members', 
+    key: 'members',
     path: '/members',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -32,7 +33,7 @@ const NAV_ITEMS = [
     )
   },
   { 
-    label: 'Classes', 
+    key: 'classes',
     path: '/classes',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -42,7 +43,7 @@ const NAV_ITEMS = [
     )
   },
   { 
-    label: 'Settings', 
+    key: 'settings',
     path: '/settings',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -54,6 +55,8 @@ const NAV_ITEMS = [
 ]
 
 export function Sidebar({ open, onClose }: SidebarProps) {
+  const { t } = useTranslation()
+
   return (
     <>
       {open && <div className={styles.overlay} onClick={onClose} aria-hidden="true" />}
@@ -75,7 +78,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
               onClick={onClose}
             >
               <span className={styles.navIcon}>{item.icon}</span>
-              <span className={styles.navLabel}>{item.label}</span>
+              <span className={styles.navLabel}>{t(`nav.${item.key}`)}</span>
             </NavLink>
           ))}
         </nav>
