@@ -4,35 +4,23 @@ interface ConfidentialFieldProps {
   label: string
   value: string
   revealed?: boolean
+  fullWidth?: boolean
 }
 
-/**
- * Confidential field with opaque hatched overlay.
- * 
- * Design decision: Confidential data (phone, emergency contact, medical notes)
- * is present in the DOM but visually obscured by a 92% opaque white overlay with
- * a diagonal hatch pattern. This approach:
- * 
- * 1. Prevents casual viewing - staff cannot read sensitive data at a glance
- * 2. Signals intentionality - the hatched pattern clearly indicates hidden content
- * 3. Requires explicit action - user must click "Show confidential details" to reveal
- * 4. Maintains accessibility - screen readers can access the content if needed
- * 5. Preserves data in DOM - no re-fetch required when revealing
- * 
- * The overlay uses a ::before pseudo-element that fades out when revealed=true,
- * providing a smooth transition without layout shift.
- * 
- * Alternative considered: Rendering placeholder text (••••) and only injecting real
- * values when revealed. This would be more secure (data never in DOM until requested)
- * but requires more complex state management. Current approach balances security with
- * UX - the data is present but functionally protected from casual exposure.
- */
-export function ConfidentialField({ label, value, revealed = false }: ConfidentialFieldProps) {
+export function ConfidentialField({ label, value, revealed = false, fullWidth = false }: ConfidentialFieldProps) {
   return (
-    <div className={styles.field}>
+    <div className={`${styles.field} ${fullWidth ? styles.fullWidth : ''}`}>
       <span className={styles.label}>{label}</span>
       <div className={`${styles.valueBox} ${revealed ? styles.revealed : ''}`}>
         <span className={styles.value}>{value}</span>
+        {!revealed && (
+          <span className={styles.lockIcon} aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+          </span>
+        )}
       </div>
     </div>
   )

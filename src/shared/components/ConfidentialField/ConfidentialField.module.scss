@@ -1,9 +1,13 @@
-@use '../../../styles/tokens';
+@use "../../../styles/tokens";
 
 .field {
   display: flex;
   flex-direction: column;
   gap: tokens.$space-2;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
 }
 
 .label {
@@ -13,41 +17,61 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-align: start;
+  display: flex;
+  align-items: center;
+  gap: tokens.$space-1;
 }
 
 .valueBox {
   padding: tokens.$space-3;
   background: var(--color-surface);
   border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-warning);
   border-radius: tokens.$radius-md;
   min-height: 44px;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
+  transition: border-color 0.2s ease;
 
-  // Opaque overlay with hatched pattern that actually obscures the text
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(4px);
     background-image: repeating-linear-gradient(
       45deg,
       transparent,
       transparent 8px,
-      rgba(var(--color-ink-muted), 0.12) 8px,
-      rgba(var(--color-ink-muted), 0.12) 16px
+      rgba(var(--color-ink-muted), 0.1) 8px,
+      rgba(var(--color-ink-muted), 0.1) 16px
     );
     pointer-events: none;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.25s ease;
   }
 }
 
 .revealed {
+  border-left-color: var(--color-success);
+
   &::before {
     opacity: 0;
   }
+}
+
+.lockIcon {
+  position: absolute;
+  inset-inline-end: tokens.$space-3;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-ink-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .value {

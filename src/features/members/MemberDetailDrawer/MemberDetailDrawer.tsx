@@ -114,9 +114,16 @@ export function MemberDetailDrawer() {
                 </div>
               </div>
 
-              <div className={styles.section}>
-                <div className={styles.sectionHeader}>
-                  <h4 className={styles.sectionTitle}>{t('members.confidential')}</h4>
+              <div className={styles.confidentialCard}>
+                <div className={styles.confidentialHeader}>
+                  <div className={styles.confidentialTitleRow}>
+                    <span className={styles.confidentialIcon} aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      </svg>
+                    </span>
+                    <h4 className={styles.confidentialTitle}>{t('members.confidential')}</h4>
+                  </div>
                   <button
                     className={styles.toggleBtn}
                     onClick={() => setShowConfidential(!showConfidential)}
@@ -126,16 +133,15 @@ export function MemberDetailDrawer() {
                     {showConfidential ? t('members.hideConfidential') : t('members.showConfidential')}
                   </button>
                 </div>
-                <div className={styles.confidentialGrid}>
-                  <ConfidentialField label={t('members.phone')} value={member.phone} revealed={showConfidential} />
+                <div className={styles.confidentialFields}>
+                  <ConfidentialField label={t('members.phone')} value={member.phone} revealed={showConfidential} fullWidth />
                   <ConfidentialField
-label={t('members.emergencyContact')}
+                    label={t('members.emergencyContact')}
                     value={`${member.emergencyContact.name} · ${member.emergencyContact.phone}`}
                     revealed={showConfidential}
+                    fullWidth
                   />
-                </div>
-                <div className={styles.confidentialFull}>
-                  <ConfidentialField label={t('members.medicalNotes')} value={member.medicalNotes} revealed={showConfidential} />
+                  <ConfidentialField label={t('members.medicalNotes')} value={member.medicalNotes} revealed={showConfidential} fullWidth />
                 </div>
               </div>
 
